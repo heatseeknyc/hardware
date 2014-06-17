@@ -20,7 +20,7 @@
 
 (default) **AR** = 0xFF _which disables broadcasting routes to the sensor, because no one will ever be talking to the sensor_
 
-**D0** = 2 _to set pin 0 as analog read_
+**D1** = 2 _to set AD1 as analog read_
 
 **IR** = e.g. 60000 _to sample every 60,000ms = 1 minute_
 
