@@ -27,6 +27,8 @@
 
 ### raspberry π
 
+connect to the coordinator node over USB serial
+
 listen for IO frames, which are of the form 0x7E....92
 
-and then we'll need to (manually) maintain a mapping of 64-bit sensor addresses to apartments
+use a (manually maintained) mapping of 64-bit sensor addresses to apartments, to record apartment temperatures
