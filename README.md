@@ -23,3 +23,10 @@
 **D0** = 2 _to set pin 0 as analog read_
 
 **IR** = e.g. 60000 _to sample every 60,000ms = 1 minute_
+
+
+### raspberry π
+
+listen for IO frames, which are of the form 0x7E....92
+
+and then we'll need to (manually) maintain a mapping of 64-bit sensor addresses to apartments
