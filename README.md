@@ -27,10 +27,22 @@
 _TODO_ investigate XBee ADC voltage scaling and maximum, it's supposedly not 3.3V
 
 
-### raspberry π
+## Raspberry π notes
 
-connect to the coordinator node over USB serial
+### overview
+
+connect to the coordinator node via usb board
 
 listen for IO frames, which are of the form 0x7E....92
 
 use a (manually maintained) mapping of 64-bit sensor addresses to apartments, to record apartment temperatures
+
+### FTDI
+
+VCP drivers don't seem to work on ARM (and thus π), so options are D2XX which seems annoying, or libftdi
+
+to test on a Mac:
+
+    brew install libftdi
+    pip3 install pylibftdi
+    sudo kextunload -bundle-id com.apple.driver.AppleUSBFTDI
