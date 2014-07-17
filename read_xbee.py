@@ -5,15 +5,14 @@ import os
 from struct import Struct
 import time
 
-import serial
-
 SHORT = Struct('>H') # big endian unsigned short
 
-
 def read_sensor(xbee):
-    frame_start, = xbee.read()
-    if frame_start != 0x7E:
-        raise Exception('expected frame start byte 0x7E but got {:02X}'.format(frame_start))
+    while True:
+        frame_start = xbee.read(1)
+        if frame_start == b'\x7E': break
+        if frame_start: logging.error('expected frame start byte 0x7E but got {:02X}'.format(frame_start[0]))
+        time.sleep(0.01)
 
     length, = SHORT.unpack(xbee.read(2))
 
@@ -38,7 +37,10 @@ def read_sensor(xbee):
         sensor_global_id = binascii.hexlify(sensor_global_id).decode('ascii')
         print('{},{},{}'.format(int(time.time()), sensor_global_id, fahrenheit))
 
-def main():
+
+def main_serial():
+    import serial
+
     devs = os.listdir('/dev/')
     usbserials = [dev for dev in devs if dev.startswith('tty.usbserial')]
     if not usbserials:
@@ -48,8 +50,26 @@ def main():
     with serial.Serial('/dev/' + usbserials[0]) as xbee: # defaults to 9600/8N1
         logging.info('...connected to {}'.format(xbee.name))
         while True:
-            read_sensor(xbee)
+            try:
+                read_sensor(xbee)
+            except Exception:
+                logging.exception("failed to read a packet")
 
+
+def main_libftdi():
+    import pylibftdi
+    import time
+    pylibftdi.driver.USB_PID_LIST.append(0x6015)
+
+    logging.info('attempting connection to ftdi usb...')
+    with pylibftdi.Device() as xbee: # defaults to 9600/8N1
+        logging.info('...connected')
+        while True:
+            try:
+                read_sensor(xbee)
+            except Exception:
+                logging.exception("failed to read a packet")
+            
 
 if __name__ == '__main__':
-    main()
+    main_libftdi()
