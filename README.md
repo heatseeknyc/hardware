@@ -24,7 +24,7 @@
 
 **IR** = e.g. 60000 _to sample every 60,000ms = 1 minute_
 
-_TODO_ investigate XBee ADC voltage scaling and maximum, it's supposedly not 3.3V
+_TODO_ is it important to connect VREF to VCC?
 
 
 ## Raspberry π notes
