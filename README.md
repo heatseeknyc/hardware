@@ -39,10 +39,35 @@ use a (manually maintained) mapping of 64-bit sensor addresses to apartments, to
 
 ### FTDI
 
-VCP drivers don't seem to work on ARM (and thus π), so options are D2XX which seems annoying, or libftdi
+FTDI's VCP drivers don't work on ARM (and thus π), so options are FTDI's D2XX, or the open source libftdi. We're going with libftdi.
 
-to test on a Mac:
+pylibftdi doesn't support the new `0x6015` product ID, so our code adds it manually:
 
+    pylibftdi.driver.USB_PID_LIST.append(0x6015)
+
+_TODO_ look into why pylibftdi's read() method doesn't block as nicely as the builtin serial library
+    
+#### libftdi on Raspbian
+
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install libftdi-dev python3-setuptools
+    sudo easy_install3 pip
+    sudo pip3 install pylibftdi
+
+and lastly, to allow FTDI devices to be opened without sudo:
+
+    echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", GROUP="dialout", MODE="0660"' \
+    | sudo tee /etc/udev/rules.d/99-libftdi.rules
+
+#### libftdi on Mac OS X
+
+    brew update
+    brew upgrade
     brew install libftdi
     pip3 install pylibftdi
+
+ If you have issues you may need to do:
+
     sudo kextunload -bundle-id com.apple.driver.AppleUSBFTDI
+
