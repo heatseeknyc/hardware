@@ -69,5 +69,5 @@ and lastly, to allow FTDI devices to be opened without sudo:
 
  If you have issues you may need to do:
 
-    sudo kextunload -bundle-id com.apple.driver.AppleUSBFTDI
+    sudo kextunload -b com.apple.driver.AppleUSBFTDI
 
