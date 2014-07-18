@@ -7,7 +7,7 @@ on = true
 while on do
 
   sofar = open('sofar.txt', 'r')
-  current_reading = sofar.readlines[0].to_i
+  current_reading = sofar.read.to_i
   sofar.close
 
   readings = open('readings.txt', 'r').readlines
@@ -32,7 +32,7 @@ while on do
   end
 
   sofar = open('sofar.txt', 'w')
-  sofar.write(current_reading)
+  sofar.puts(current_reading)
   sofar.close
 
   # sleep(600)
