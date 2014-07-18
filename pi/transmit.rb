@@ -11,7 +11,7 @@ while on do
   sofar.close
 
   readings = open('readings.txt', 'r').readlines
-  readings = readings.slice(current_reading..-1)
+  readings = readings.slice(current_reading..-2) # don't include last line, in case it is unfinished
   uri = URI('http://heatseeknyc.com/readings.json')
 
   readings.each do |reading|
