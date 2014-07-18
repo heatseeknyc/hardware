@@ -1,3 +1,14 @@
+## demo notes
+
+ssh into the Raspberry π and start the transmitter and the receiver:
+
+    cd heatseek
+    nohup ruby transmit.rb &
+    nohup python3 -u receive.py 2> /dev/null >> data/readings.tsv &
+
+thanks to `nohup` you can safely log out and they'll continue to run.
+
+
 ## XBee notes
 
 
