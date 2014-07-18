@@ -10,13 +10,13 @@ while on do
   current_reading = sofar.read.to_i
   sofar.close
 
-  readings = open('readings.txt', 'r').readlines
+  readings = open('readings.tsv', 'r').readlines
   readings = readings.slice(current_reading..-2) # don't include last line, in case it is unfinished
   uri = URI('http://heatseeknyc.com/readings.json')
 
   readings.each do |reading|
     reading = reading.chop
-    sensor_name, temp, time, verification = reading.split(',')
+    time, sensor_name, temp, verification = reading.split('\t')
 
     req = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
     req.body = {reading: {sensor_name: sensor_name, temp: temp, time: time, verification: verification}}.to_json
