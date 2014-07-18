@@ -47,7 +47,7 @@ def read_sensor(xbee):
         signature = 'c0ffee' # TODO actually sign row using a secret key
 
         print('{}\t{}\t{}\t{}'
-              .format(int(time.time()), sensor_global_id, int(fahrenheit), signature))
+              .format(round(time.time()), sensor_global_id, round(fahrenheit), signature))
 
 def main():
     logging.info('attempting connection to ftdi usb...')
