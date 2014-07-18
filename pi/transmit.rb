@@ -1,4 +1,3 @@
-require 'pry-nav'
 require 'net/http'
 require 'json'
 
@@ -20,7 +19,6 @@ while on do
 
     req = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
     req.body = {reading: {sensor_name: sensor_name, temp: temp, time: time, verification: verification}}.to_json
-    binding.pry
     res = Net::HTTP.start(uri.hostname, uri.port) do |http|
       response = http.request(req)
       puts "Reading sent, response code = #{response.code}"
