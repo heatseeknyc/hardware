@@ -18,6 +18,7 @@ while on do
   uri = URI('http://heatseeknyc.com/readings.json')
 
   readings.each do |reading|
+    puts reading
     reading = reading.chop
     time, sensor_name, temp, verification = reading.split("\t")
 
@@ -30,7 +31,7 @@ while on do
       current_reading +=1 if response.code == "200"
     end
 
-    sleep(2)
+    sleep(0.5)
 
   end
 
@@ -38,9 +39,7 @@ while on do
   sofar.puts(current_reading)
   sofar.close
 
-  # sleep(600)
-
-  on = false
+  sleep(0.5)
 
 end
 
