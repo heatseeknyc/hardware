@@ -1,15 +1,19 @@
 require 'net/http'
 require 'json'
 
+DATA_DIR = 'data/'
+PROGRESS_PATH = DATA_DIR + 'progress'
+READINGS_PATH = DATA_DIR + 'readings.tsv'
+
 on = true
 
 while on do
 
-  sofar = open('sofar.txt', 'r')
+  sofar = open(PROGRESS_PATH)
   current_reading = sofar.read.to_i
   sofar.close
 
-  readings = open('readings.tsv', 'r').readlines
+  readings = open(READINGS_PATH).readlines
   readings = readings.slice(current_reading..-2) # don't include last line, in case it is unfinished
   uri = URI('http://heatseeknyc.com/readings.json')
 
@@ -30,7 +34,7 @@ while on do
 
   end
 
-  sofar = open('sofar.txt', 'w')
+  sofar = open(PROGRESS_PATH, 'w')
   sofar.puts(current_reading)
   sofar.close
 
