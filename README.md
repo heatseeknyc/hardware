@@ -1,12 +1,26 @@
 ## demo notes
 
-ssh into the Raspberry π and start the transmitter and the receiver:
+ssh into the Raspberry π and start run the receiver and transmitter in a 'screen':
 
     cd heatseek
-    nohup ruby transmit.rb &
-    nohup python3 -u receive.py 2> /dev/null >> data/readings.tsv &
+    screen
+    ruby transmit.rb
 
-thanks to `nohup` you can safely log out and they'll continue to run.
+then press Control-z then press c, which creates a new tab, and run:
+
+    python3 -u receive.py >> data/readings.tsv
+
+Now the transmitter and receiver are running, but we'll create one last tab for monitoring the output of the receiver.
+
+Press Control-z then press c, to create another tab, then run:
+
+    tail -f data/readings.tsv
+    
+Now we have three tabs; to switch between them press Control-z then the tab number.
+
+To 'detach' from the screen press Control-z then d.
+
+To reattach to the screen, run `screen -r`.
 
 
 ## XBee notes
