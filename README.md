@@ -37,6 +37,8 @@ To reattach to the screen, run `screen -r`.
 
 ### sensor node
 
+Connect VREF (pin 14) to VCC (aka 3.3V)! This is basically undocumented, but without it the chip basically crashes after a minute of reading from the ADC. _TODO_ email Digi about this.
+
 **firmware** = ZigBee Router AT
 
 **PAN ID** = same as coordinator
@@ -48,8 +50,6 @@ To reattach to the screen, run `screen -r`.
 **D1** = 2 _to set AD1 as analog read_
 
 **IR** = e.g. 60000 _to sample every 60,000ms = 1 minute_
-
-_TODO_ is it important to connect VREF to VCC?
 
 
 ## Raspberry π notes
@@ -70,7 +70,16 @@ pylibftdi doesn't support the new `0x6015` product ID, so our code adds it manua
 
     pylibftdi.driver.USB_PID_LIST.append(0x6015)
 
-_TODO_ look into why pylibftdi's read() method doesn't block as nicely as the builtin serial library
+pylibftdi's read() method doesn't block as nicely as the builtin serial library's read(), so we wrap it in a loop:
+
+    def read(f, length):
+        s = b''
+        while True:
+            s += f.read(length - len(s))
+            if len(s) == length: break
+            time.sleep(0.01)
+        return s
+
     
 #### libftdi on Raspbian
 
