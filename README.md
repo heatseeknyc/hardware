@@ -72,13 +72,15 @@ pylibftdi doesn't support the new `0x6015` product ID, so our code adds it manua
 
 pylibftdi's read() method doesn't block as nicely as the builtin serial library's read(), so we wrap it in a loop:
 
-    def read(f, length):
-        s = b''
-        while True:
-            s += f.read(length - len(s))
-            if len(s) == length: break
-            time.sleep(0.01)
-        return s
+```python
+def read(f, length):
+    s = b''
+    while True:
+        s += f.read(length - len(s))
+        if len(s) == length: break
+        time.sleep(0.01)
+    return s
+```
 
     
 #### libftdi on Raspbian
