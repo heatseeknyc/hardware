@@ -1,6 +1,6 @@
 ## demo notes
 
-ssh into the Raspberry π and start run the receiver and transmitter in a 'screen':
+ssh into the Raspberry π and start the receiver and transmitter in a 'screen':
 
     cd heatseek
     screen
