@@ -2,9 +2,11 @@
 
 ssh into the Raspberry π and start the receiver and transmitter in a 'screen':
 
-    cd heatseek
-    screen
-    ruby transmit.rb
+```bash
+cd heatseek
+screen
+ruby transmit.rb
+```
 
 then press Control-z then press c, which creates a new tab, and run:
 
