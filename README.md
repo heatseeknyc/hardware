@@ -29,7 +29,22 @@ To 'detach' from the screen press Control-z then d.
 To reattach to the screen, run `screen -r`.
 
 
-## XBee notes
+## XBee-DigiMesh
+
+Turns out we probably should have been using XBee DigiMesh instead of XBee Zigbee all along!
+
+It supports synchronized sleeping, for low-power meshing.
+
+The [chip](http://www.digikey.com/product-detail/en/XB24-DMPIT-250/602-1338-ND/3482610).
+
+The [docs](http://ftp1.digi.com/support/documentation/90000991_L.pdf).
+
+Adding a new node become slightly trickier, but if the π node is in "Synchronous Sleep Support Mode" SM=7, then you can just bring a new node near the π at any time and it will sync up with the rest of the sleeping (SM=8) nodes.
+
+TODO - how to cause an I/O sample every time nodes wake up? Possibly large nonzero IR value will trigger just one initial read?
+
+
+## XBee-Zigbee
 
 
 ### coordinator node
