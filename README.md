@@ -46,6 +46,9 @@ TODO - how to cause an I/O sample every time nodes wake up? Possibly large nonze
 
 ## XBee-Zigbee
 
+The [chip](http://www.digikey.com/product-detail/en/XB24-Z7PIT-004/602-1275-ND/3482624).
+
+The [docs](http://ftp1.digi.com/support/documentation/90000976_S.pdf)
 
 ### coordinator node
 
