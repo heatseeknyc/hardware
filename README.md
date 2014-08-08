@@ -35,7 +35,7 @@ Turns out we probably should have been using XBee DigiMesh instead of XBee Zigbe
 
 It supports synchronized sleeping, for low-power meshing.
 
-The [chip](http://www.digikey.com/product-detail/en/XB24-DMPIT-250/602-1338-ND/3482610).
+The [chip](http://www.digikey.com/product-detail/en/XB24-DMPIT-250/602-1338-ND/3482610) — this is the same hardware as [XBee Series 1](http://www.digikey.com/product-detail/en/XB24-API-001/602-1273-ND/3482588) but with DigiMesh firmware pre-installed.
 
 The [docs](http://ftp1.digi.com/support/documentation/90000991_L.pdf).
 
@@ -43,10 +43,24 @@ Adding a new node become slightly trickier, but if the π node is in "Synchronou
 
 TODO - how to cause an I/O sample every time nodes wake up? Possibly large nonzero IR value will trigger just one initial read?
 
+### Power Consumption
+
+cyclic sleep < 50µA
+
+transmit < 45mA
+
+So if we transmit for 1 second every hour, then we use 63µAh per hour, so a 1000mAh battery would last 1.8 years.
+
+If we transmit for 5 seconds every hour, we use 112µAh per hour, so a 1000mAh battery would last 1.0 years.
+
+If we transmit for 1 second every minute, we use 800µAh per hour, so a 1000mAh battery would last 52 days.
+
+If we transmit for 5 seconds every minute, we use 3.8mAh per hour, so a 1000mAh battery would last 11 days.
+
 
 ## XBee-Zigbee
 
-The [chip](http://www.digikey.com/product-detail/en/XB24-Z7PIT-004/602-1275-ND/3482624).
+The [chip](http://www.digikey.com/product-detail/en/XB24-Z7PIT-004/602-1275-ND/3482624), aka XBee Series 2.
 
 The [docs](http://ftp1.digi.com/support/documentation/90000976_S.pdf)
 
