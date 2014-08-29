@@ -43,6 +43,8 @@ Adding a new node become slightly trickier, but if the π node is in "Synchronou
 
 TODO - how to cause an I/O sample every time nodes wake up? Possibly large nonzero IR value will trigger just one initial read?
 
+TODO - use EE=1 on all nodes, to enable encryption
+
 ### Power Consumption
 
 cyclic sleep < 50µA
