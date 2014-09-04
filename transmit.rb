@@ -26,12 +26,12 @@ while on do
     req.body = {reading: {sensor_name: sensor_name, temp: temp, time: time, verification: verification}}.to_json
     res = Net::HTTP.start('heatseeknyc.com', 80) do |http|
       response = http.request(req)
-      puts "Reading sent, response code = #{response.code}"
+      puts "Reading sent on Demo Day, response code = #{response.code}"
       
       current_reading +=1 if response.code == "200"
     end
 
-    sleep(0.5)
+    sleep(0.1)
 
   end
 

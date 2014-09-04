@@ -1,8 +1,8 @@
 #! /bin/sh
-# /etc/init.d/start_reading 
+# /etc/init.d/start_receive
 
 ### BEGIN INIT INFO
-# Provides:          reading
+# Provides:          receive
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
@@ -16,17 +16,17 @@
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
-    echo "Starting reading"
+    echo "Starting receiving"
     # run application you want to start
-    nohup python3 /home/pi/reading.py 0<&- &> /home/pi/readlog &
+    nohup python3 -u /home/pi/heatseek/receive.py 2> /dev/null >> /home/pi/heatseek/data/readings.tsv  &
     ;;
   stop)
-    echo "Stopping transmit"
+    echo "Stopping receiving"
     # kill application you want to stop
-    killall reading
+    killall receive
     ;;
   *)
-    echo "Usage: /etc/init.d/start_transmit {start|stop}"
+    echo "Usage: /etc/init.d/start_receive {start|stop}"
     exit 1
     ;;
 esac
