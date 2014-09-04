@@ -1,0 +1,14 @@
+encoding UTF-8
+
+defscrollback 50000
+startup_message off
+altscreen on
+term xterm-color
+
+escape ^Zz
+
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H (3) %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W} %n %t %?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W} %c %{g}]'
+
+screen -t "transmit" ruby transmit.rb
+screen -t "receive" python3 -u receive.py | tee -a data/readings.tsv

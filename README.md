@@ -2,27 +2,10 @@
 
 ssh into the Raspberry π and start the receiver and transmitter in a 'screen':
 
-```bash
-cd heatseek
-screen
-ruby transmit.rb
-```
-
-then press Control-z then press c, which creates a new tab, and run:
-
-```bash
-python3 -u receive.py >> data/readings.tsv
-```
-
-Now the transmitter and receiver are running, but we'll create one last tab for monitoring the output of the receiver.
-
-Press Control-z then press c, to create another tab, then run:
-
-```bash
-tail -f data/readings.tsv
-```
+    cd heatseek
+    screen -c screenrc
     
-Now we have three tabs; to switch between them press Control-z then the tab number.
+To switch between the tabs press Control-z then the tab number.
 
 To 'detach' from the screen press Control-z then d.
 
