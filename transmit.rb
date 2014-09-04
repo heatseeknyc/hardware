@@ -27,6 +27,11 @@ while on do
     res = Net::HTTP.start('heatseeknyc.com', 80) do |http|
       response = http.request(req)
       puts "Reading sent on Demo Day, response code = #{response.code}"
+      if response.code != "200"
+        puts uri
+        puts req.body
+        puts response.body
+      end
       
       current_reading +=1 if response.code == "200"
     end
