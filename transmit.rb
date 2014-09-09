@@ -31,9 +31,10 @@ while on do
         puts uri
         puts req.body
         puts response.body
+        puts "skipping..."
       end
       
-      current_reading +=1 if response.code == "200"
+      current_reading +=1
     end
 
     sleep(0.1)
