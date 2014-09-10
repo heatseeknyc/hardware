@@ -77,6 +77,19 @@ Connect VREF (pin 14) to VCC (aka 3.3V)! This is basically undocumented, but wit
 
 ## Raspberry π notes
 
+### new plan
+
+connect XBee to GPIO serial pins directly
+
+use the script at https://github.com/lurch/rpi-serial-console/ to enable serial
+
+device is /dev/ttyAMA0
+
+default π baud rate is 115200 but can be changed in the script, default XBee baud rate is 9600 but can be changed with the BD command, so whatever works best...
+
+then standard python serial can be used, and no usb is used
+
+
 ### overview
 
 connect to the coordinator node via usb board
