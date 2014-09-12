@@ -170,7 +170,7 @@ Assuming 31 days per month (worst case), and 365 days per year, data usage will 
 |50      |120 kb  |3.72 mb   |14.4 mb  |43.8 mb  |
 |100     |240 kb  |7.44 mb   |28.8 mb  |87.6 mb  |
 
-Researching data plans, the simplest plan was the [PagePlus](https://www.pagepluscellular.com/plans/10-standard-pin/) $10 prepaid. This plan offers data at $0.10 per megabyte, with a 120 day usage window per recharge. This means that every $10 recharge will allow us to transmit an additional 100 mb per base over a maximum of 120 days, far more than the needs of even our most ambitious deployments by nearly a factor of four. This means that we can reasonably expect data costs per base not to exceed $30/year under most circumstances.
+Researching data plans, the simplest plan was the [PagePlus](https://www.pagepluscellular.com/plans/10-standard-pin/) $10 prepaid. This plan offers data at $0.10 per megabyte, with a 120 day usage window per recharge. This means that every $10 recharge will allow us to transmit an additional 100 mb per base over a maximum of 120 days, far more than the needs of even our most ambitious deployments by nearly a factor of four.
 
 Looking at this, then, it seems that we would be able to provide each base with more than sufficient data capacity for approximately $30/year for any size deployment. This is substantially cheaper than any other plans I was able to find, the next-cheapest of which cost approximately $10-20/month.
 
@@ -187,4 +187,5 @@ We need to consider whether the benefits of moving to cellular networks outweigh
 **CONS**
 - Additional base cost
 - Annual data fee
-- Larger size of base
+- Larger size of base/casing
+- Dependancy on pricing of the cellular plan
