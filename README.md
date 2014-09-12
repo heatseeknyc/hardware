@@ -162,8 +162,8 @@ Assuming 31 days per month (worst case), and 365 days per year, data usage will 
 
 |numCells|Data/Day|Data/Month|Data/120d|Data/Year|
 |--------|--------|----------|---------|---------|
-|1       |2.4 kb  |74.4 kb   |288 kb   |876 kb   |
-|10      |24 kb   |744 kb    |2.88 mb  |8.76 mb  |
+|1       |2.4 kb  |0.0744 mb |0.288 mb |0.876 mb |
+|10      |24 kb   |0.744 mb  |2.88 mb  |8.76 mb  |
 |15      |36 kb   |1.17 mb   |4.32 mb  |13.14 mb |
 |20      |48 kb   |1.48 mb   |5.76 mb  |17.52 mb |
 |30      |72 kb   |2.23 mb   |8.64 mb  |26.28 mb |
