@@ -176,6 +176,8 @@ Looking at this, then, it seems that we would be able to provide each base with 
 
 Regarding hardware, we would need to provide each base with a modem capable of translating between the Pi and the cellular network. Possibilities include this [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
 
+[Verified 3G USB dongles](http://elinux.org/RPi_VerifiedPeripherals#USB_3G_Dongles)
+
 We need to consider whether the benefits of moving to cellular networks outweight the costs:
 
 **PROS**
