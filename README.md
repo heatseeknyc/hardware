@@ -182,6 +182,7 @@ We need to consider whether the benefits of moving to cellular networks outweigh
 - Easier deployment (and re-deployment)
 - More consistent deployment
 - Remove dependence on building networks
+- Remove the need to develop a wifi configuration process
 
 **CONS**
 - Additional base cost
