@@ -152,3 +152,37 @@ pip3 install pylibftdi
 ```bash
 sudo kextunload -b com.apple.driver.AppleUSBFTDI
 ```
+
+#### Data usage notes
+
+Assuming each reading is ~100 bytes (the reading itself may be as little as 20-30 bytes, plus the HTTP headers), and each cell takes 24 readings per day, that's 24 x 100 = 2,400 bytes per day per cell, or 2.4 kilobytes (roughly, 1kb = 1024b).
+
+Assuming a base is connected to 10 cells, then the base will be transmitting 10 x 2.4 = 24 kilobytes per day.
+Assuming 31 days per month (worst case), and 365 days per year, data usage will be:
+
+#Cells  Data/Day  Data/Month  Data/120d   Data/Year
+1       2.4 kb    74.4 kb     288 kb      876 kb
+10      24 kb     744 kb      2.88 mb     8.76 mb
+15      36 kb     1.17 mb     4.32 mb     13.14 mb
+20      48 kb     1.48 mb     5.76 mb     17.52 mb
+30      72 kb     2.23 mb     8.64 mb     26.28 mb
+50      120 kb    3.72 mb     14.4 mb     43.38 mb
+100     240 kb    7.44 mb     28.8 mb     86.76 mb
+
+Researching data plans, the simplest plan was the [PagePlus](https://www.pagepluscellular.com/plans/10-standard-pin/) $10 prepaid. This plan offers data at $0.10 per megabyte, with a 120 day usage window per recharge. This means that every $10 recharge will allow us to transmit an additional 100 mb per base over a maximum of 120 days, far more than the needs of even our most ambitious deployments by nearly a factor of four. This means that we can reasonably expect data costs per base not to exceed $30/year under most circumstances.
+
+Looking at this, then, it seems that we would be able to provide each base with more than sufficient data capacity for approximately $30/year for any size deployment. This is substantially cheaper than any other plans I was able to find, the next-cheapest of which cost approximately $10-20/month.
+
+Regarding hardware, we would need to provide each base with a modem capable of translating between the Pi and the cellular network. Possibilities include this [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
+
+We need to consider whether the benefits of moving to cellular networks outweight the costs:
+
+**PROS**
+- Easier deployment (and re-deployment)
+- More consistent deployment
+- Remove dependence on building networks
+
+**CONS**
+- Additional base cost
+- Annual data fee
+- Larger size of base
