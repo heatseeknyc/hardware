@@ -177,6 +177,13 @@ Researching data plans, the simplest plan was the [PagePlus](https://www.pageplu
 
 Looking at this, then, it seems that we would be able to provide each base with more than sufficient data capacity for approximately $30/year for any size deployment. This is substantially cheaper than any other plans I was able to find, the next-cheapest of which cost approximately $10-20/month.
 
+**Unfortunately it seems like Page Plus doesn't provide SIM cards, so can only be used with CDMA phones?**
+
+Another option is these pre-paid Vodafone SIM cards:
+- [1MB/month for a year](http://www.embeddedworks.net/wsim2730.html) for $31.27, or $2.61/MB
+- [5MB/month for 6 months](http://www.embeddedworks.net/wsim2737.html) for $46.11, or $1.54/MB
+- [10MB/month for a year](http://www.embeddedworks.net/wsim2786.html) for $137.41, or $1.15/MB
+
 Regarding hardware, we would need to provide each base with a modem capable of translating between the Pi and the cellular network. Possibilities include this [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
 
 [Verified 3G USB dongles](http://elinux.org/RPi_VerifiedPeripherals#USB_3G_Dongles)
