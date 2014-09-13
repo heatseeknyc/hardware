@@ -11,6 +11,9 @@ To 'detach' from the screen press Control-z then d.
 
 To reattach to the screen, run `screen -r`.
 
+## Specific hardware and costs
+
+See the [spreadsheet](https://docs.google.com/spreadsheets/d/1aLX0yPriqRYv9exc7hV8ZaoWDZZKsPV997NUnLpyvPM/edit?usp=sharing).
 
 ## XBee-DigiMesh
 
