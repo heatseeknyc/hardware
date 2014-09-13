@@ -22,9 +22,14 @@ while on do
     reading = reading.chop
     time, sensor_name, temp, verification = reading.split("\t")
 
+    current_reading +=1
+    sofar = open(PROGRESS_PATH, 'w')
+    sofar.puts(current_reading)
+    sofar.close
+
     req = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
     req.body = {reading: {sensor_name: sensor_name, temp: temp, time: time, verification: verification}}.to_json
-    res = Net::HTTP.start('heatseeknyc.com', 80) do |http|
+    res = Net::HTTP.start('heatseeknyc.com', 80, :open_timeout => 1, :read_timeout => 1) do |http|
       response = http.request(req)
       puts "Reading sent on Demo Day, response code = #{response.code}"
       if response.code != "200"
@@ -33,17 +38,11 @@ while on do
         puts response.body
         puts "skipping..."
       end
-      
-      current_reading +=1
     end
 
     sleep(0.1)
 
   end
-
-  sofar = open(PROGRESS_PATH, 'w')
-  sofar.puts(current_reading)
-  sofar.close
 
   sleep(0.5)
 

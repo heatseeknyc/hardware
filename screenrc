@@ -10,5 +10,5 @@ escape ^Zz
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H (3) %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W} %n %t %?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W} %c %{g}]'
 
-screen -t "transmit" bash -c 'ruby transmit.rb 2> transmit-errors.log'
-screen -t "receive" bash -c 'python3 -u receive.py 2> receive-errors.log | tee -a data/readings.tsv'
+screen -t "transmit" bash -c 'while true; do ruby transmit.rb 2>> transmit-errors.log; sleep 1; done'
+screen -t "receive" bash -c 'python3 -u receive.py 2>> receive-errors.log | tee -a data/readings.tsv'
