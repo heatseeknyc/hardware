@@ -84,13 +84,16 @@ Connect VREF (pin 14) to VCC (aka 3.3V)! This is basically undocumented, but wit
 
 connect XBee to GPIO serial pins directly
 
-use the script at https://github.com/lurch/rpi-serial-console/ to enable serial
+- GPIO pin 1 (3v3) to XBee pin 1 (VCC)
+- GPIO pin 6 (GND) to XBee pin 10 (GND)
+- GPIO pin 8 (TXD) to XBee pin 3 (DIN)
+- GPIO pin 10 (RXD) to XBee pin 2 (DOUT)
 
-*or* use `sudo raspi-config` > Advanced Options > Serial > Off
+![GPIO pin layout](http://www.raspberrypi.org/documentation/usage/gpio/images/basic-gpio-layout.png)
+
+disable console output to serial with `sudo raspi-config` > Advanced Options > Serial > Off
 
 device is /dev/ttyAMA0
-
-default π baud rate is 115200 but can be changed in the script, default XBee baud rate is 9600 but can be changed with the BD command, so whatever works best...
 
 then standard python serial can be used, and no usb is used
 
