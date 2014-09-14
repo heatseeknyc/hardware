@@ -89,7 +89,7 @@ connect XBee to GPIO serial pins directly
 - GPIO pin 8 (TXD) to XBee pin 3 (DIN)
 - GPIO pin 10 (RXD) to XBee pin 2 (DOUT)
 
-![GPIO pin layout](http://www.raspberrypi.org/documentation/usage/gpio/images/basic-gpio-layout.png)
+![GPIO pin layout](doc/basic-gpio-layout.png)
 
 disable console output to serial with `sudo raspi-config` > Advanced Options > Serial > Off
 
