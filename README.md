@@ -86,6 +86,8 @@ connect XBee to GPIO serial pins directly
 
 use the script at https://github.com/lurch/rpi-serial-console/ to enable serial
 
+*or* use `sudo raspi-config` > Advanced Options > Serial > Off
+
 device is /dev/ttyAMA0
 
 default π baud rate is 115200 but can be changed in the script, default XBee baud rate is 9600 but can be changed with the BD command, so whatever works best...
