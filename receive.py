@@ -1,11 +1,9 @@
 import binascii
 import logging
 logging.basicConfig(level=logging.INFO)
+import serial
 from struct import Struct
 import time
-
-import pylibftdi
-pylibftdi.driver.USB_PID_LIST.append(0x6015)
 
 SHORT = Struct('>H') # big endian unsigned short
 
@@ -51,7 +49,7 @@ def read_sensor(xbee):
 
 def main():
     logging.info('attempting connection to ftdi usb...')
-    with pylibftdi.Device() as xbee: # defaults to 9600/8N1
+    with serial.Serial('/dev/ttyAMA0') as xbee: # defaults to 9600/8N1
         logging.info('...connected')
         while True:
             try:
