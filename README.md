@@ -193,6 +193,9 @@ Regarding hardware, we would need to provide each base with a modem capable of t
 
 [Verified 3G USB dongles](http://elinux.org/RPi_VerifiedPeripherals#USB_3G_Dongles)
 
+    sudo apt-get install usb-modeswitch wvdial
+    sudo wvdialconf
+
 We need to consider whether the benefits of moving to cellular networks outweight the costs:
 
 **PROS**
