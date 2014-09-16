@@ -15,7 +15,7 @@ while on do
 
   readings = open(READINGS_PATH).readlines
   readings = readings.slice(current_reading..-2) # don't include last line, in case it is unfinished
-  uri = URI('http://heatseeknyc.com/readings.json')
+  uri = 'http://heatseeknyc.com/readings.json'
 
   readings.each do |reading|
     puts reading
