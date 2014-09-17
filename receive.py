@@ -39,6 +39,8 @@ def read_sensor(xbee):
         voltage = adc / 0x3FF * 3.3 # on Xbee, 0x3FF (highest value on a 10-bit ADC) corresponds to VCC...ish
         celsius = 25 + (voltage - 0.75) / 0.01 # on TMP36, 0.75V is 25C, and every 0.01V difference is 1C difference
         fahrenheit = celsius * (212 - 32) / 100 + 32
+
+        logging.info('adc=0x{:x} voltage={:.2f} celsius={:.2f} fahrenheit={:.2f}'.format(adc, voltage, celsius, fahrenheit))
         
         sensor_global_id = binascii.hexlify(sensor_global_id).decode('ascii')
 
