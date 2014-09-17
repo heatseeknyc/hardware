@@ -29,7 +29,7 @@ while on do
 
     req = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
     req.body = {reading: {sensor_name: sensor_name, temp: temp, time: time, verification: verification}}.to_json
-    res = Net::HTTP.start('heatseeknyc.com', 80, :open_timeout => 1, :read_timeout => 1) do |http|
+    res = Net::HTTP.start('heatseeknyc.com', 80, :open_timeout => 2, :read_timeout => 2) do |http|
       response = http.request(req)
       puts "Reading sent on Demo Day, response code = #{response.code}"
       if response.code != "200"
