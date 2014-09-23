@@ -80,6 +80,10 @@ Connect VREF (pin 14) to VCC (aka 3.3V)! This is basically undocumented, but wit
 
 ## Raspberry π notes
 
+### some day
+
+try prototyping with [Teensy](https://www.sparkfun.com/products/12646) or Arduino, to see how easy direct USB 3G modem AT commands are... possibly not easy.
+
 ### new plan
 
 connect XBee to GPIO serial pins directly
