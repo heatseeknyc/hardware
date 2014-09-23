@@ -2,7 +2,7 @@
 
 ssh into the Raspberry π and start the receiver and transmitter in a 'screen':
 
-    cd heatseek
+    cd hardware
     screen -c screenrc
     
 To switch between the tabs press Control-z then the tab number.
@@ -17,19 +17,17 @@ See the [spreadsheet](https://docs.google.com/spreadsheets/d/1aLX0yPriqRYv9exc7h
 
 ## XBee-DigiMesh
 
-Turns out we probably should have been using XBee DigiMesh instead of XBee Zigbee all along!
-
-It supports synchronized sleeping, for low-power meshing.
+Unlike XBee Zigbee, it supports synchronized sleeping, for low-power meshing.
 
 The [chip](http://www.digikey.com/product-detail/en/XB24-DMPIT-250/602-1338-ND/3482610) — this is the same hardware as [XBee Series 1](http://www.digikey.com/product-detail/en/XB24-API-001/602-1273-ND/3482588) but with DigiMesh firmware pre-installed.
 
 The [docs](http://ftp1.digi.com/support/documentation/90000991_L.pdf).
 
-Adding a new node become slightly trickier, but if the π node is in "Synchronous Sleep Support Mode" SM=7, then you can just bring a new node near the π at any time and it will sync up with the rest of the sleeping (SM=8) nodes.
+Adding a new node is slightly trickier, but if the π node is in "Synchronous Sleep Support Mode" SM=7, then you can just bring a new node near the π at any time and it will sync up with the rest of the sleeping (SM=8) nodes.
 
 TODO - how to cause an I/O sample every time nodes wake up? Possibly large nonzero IR value will trigger just one initial read?
 
-TODO - use EE=1 on all nodes, to enable encryption
+TODO - use EE=1 on all nodes, to enable encryption?
 
 ### Power Consumption
 
@@ -45,46 +43,53 @@ If we transmit for 1 second every minute, we use 800µAh per hour, so a 1000mAh 
 
 If we transmit for 5 seconds every minute, we use 3.8mAh per hour, so a 1000mAh battery would last 11 days.
 
+### hub node
 
-## XBee-Zigbee
+**firmware** = DigiMesh
+
+**ID** = unique to this hub _i.e. unique to this building / sensor network_
+
+**NI** = "hub" _TODO potentially lets us set the destination of all sensors easily with the DN command?_
+
+**AP** = 1
+
+### sensor node
+
+**firmware** = DigiMesh
+
+**ID** = same as coordinator
+
+(default) **DH/DL** = 0/FFFF _which broadcasts readings_ TODO how to send just to hub?
+
+**D1** = 2 _to set AD1 as analog read_
+
+**IR** = e.g. 3E8 for 1 second, EA60 for 1 minute. TODO max is FFFF (66 seconds); how to do hourly? probably using sleep?
+
+
+### alternatives
+
+#### XBee-Zigbee
+
+Can't both sleep and mesh, but has a better ADC, perhaps among other things.
+
+Make sure to connect VREF to VCC. This is basically undocumented, but without it the chip basically crashes after a minute of reading from the ADC. _TODO_ email Digi about this.
 
 The [chip](http://www.digikey.com/product-detail/en/XB24-Z7PIT-004/602-1275-ND/3482624), aka XBee Series 2.
 
 The [docs](http://ftp1.digi.com/support/documentation/90000976_S.pdf)
 
-### coordinator node
-
-**firmware** = ZigBee Coordinator API
-
-**ID** = unique to this coordinator _i.e. unique to this building / sensor network_
-
-**AR** = e.g. 6 _to set up "many-to-one" routes back to this coordinator every 6*10 seconds = 1 minute_
-
-
-### sensor node
-
-Connect VREF (pin 14) to VCC (aka 3.3V)! This is basically undocumented, but without it the chip basically crashes after a minute of reading from the ADC. _TODO_ email Digi about this.
-
-**firmware** = ZigBee Router AT
-
-**PAN ID** = same as coordinator
-
-(default) **DH/DL** = 0/0 _which sets the destination to be the coordinator_
-
-(default) **AR** = 0xFF _which disables broadcasting routes to the sensor, because no one will ever be talking to the sensor_
-
-**D1** = 2 _to set AD1 as analog read_
-
-**IR** = e.g. 60000 _to sample every 60,000ms = 1 minute_
-
 
 ## Raspberry π notes
 
-### some day
+### overview
 
-try prototyping with [Teensy](https://www.sparkfun.com/products/12646) or Arduino, to see how easy direct USB 3G modem AT commands are... possibly not easy.
+connect XBee to the π via serial GPIO pins
 
-### new plan
+listen for IO frames, which are of the form 0x7E....92
+
+use a (manually maintained) mapping of 64-bit sensor addresses to apartments, to record apartment temperatures
+
+### serial connection
 
 connect XBee to GPIO serial pins directly
 
@@ -99,73 +104,24 @@ disable console output to serial with `sudo raspi-config` > Advanced Options > S
 
 device is /dev/ttyAMA0
 
-then standard python serial can be used, and no usb is used
+then standard python `serial` library can be used
 
+### linux setup
 
-### overview
+    sudo raspi-config
+    # 1, 2, 4 > Locale, then reboot
+    # then the rest of 4, and 8 > Hostname and 8 > Serial > Off
+    sudo apt-get update && sudo apt-get upgrade
+    sudo apt-get install emacs23-nox screen usb-modeswitch wvdial
+    sudo wvdialconf
+    sudo emacs /etc/wvdial.conf
+    # Phone = *99#
+    # Password = None
+    # Username = None
+    # Stupid Mode = 1
+    # Init3 = AT+CGDCONT=1,”IP”,”epc.tmobile.com”
 
-connect to the coordinator node via usb board
-
-listen for IO frames, which are of the form 0x7E....92
-
-use a (manually maintained) mapping of 64-bit sensor addresses to apartments, to record apartment temperatures
-
-### FTDI
-
-FTDI's VCP drivers don't work on ARM (and thus π), so options are FTDI's D2XX, or the open source libftdi. We're going with libftdi.
-
-pylibftdi doesn't support the new 0x6015 product ID, so our code adds it manually:
-
-```python
-pylibftdi.driver.USB_PID_LIST.append(0x6015)
-```
-
-pylibftdi's read() method doesn't block as nicely as the builtin serial library's read(), so we wrap it in a loop:
-
-```python
-def read(f, length):
-    s = b''
-    while True:
-        s += f.read(length - len(s))
-        if len(s) == length: break
-        time.sleep(0.01)
-    return s
-```
-
-    
-#### libftdi on Raspbian
-
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install libftdi-dev python3-setuptools
-sudo easy_install3 pip
-sudo pip3 install pylibftdi
-```
-
-and lastly, to allow FTDI devices to be opened without sudo:
-
-```bash
-echo 'SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", GROUP="dialout", MODE="0660"' \
-| sudo tee /etc/udev/rules.d/99-libftdi.rules
-```
-
-#### libftdi on Mac OS X
-
-```bash
-brew update
-brew upgrade
-brew install libftdi
-pip3 install pylibftdi
-```
-
- If you have issues you may need to do:
-
-```bash
-sudo kextunload -b com.apple.driver.AppleUSBFTDI
-```
-
-#### Data usage notes
+### Data usage
 
 Assuming each reading is ~100 bytes (the reading itself may be as little as 20-30 bytes, plus the HTTP headers), and each cell takes 24 readings per day, that's 24 x 100 = 2,400 bytes per day per cell, or 2.4 kilobytes (roughly, 1kb = 1024b).
 
@@ -182,34 +138,19 @@ Assuming 31 days per month (worst case), and 365 days per year, data usage will 
 |50      |120 kb  |3.72 mb   |14.4 mb  |43.8 mb  |
 |100     |240 kb  |7.44 mb   |28.8 mb  |87.6 mb  |
 
-Researching data plans, the simplest plan was the [PagePlus](https://www.pagepluscellular.com/plans/10-standard-pin/) $10 prepaid. This plan offers data at $0.10 per megabyte, with a 120 day usage window per recharge. This means that every $10 recharge will allow us to transmit an additional 100 mb per base over a maximum of 120 days, far more than the needs of even our most ambitious deployments by nearly a factor of four.
-
-Looking at this, then, it seems that we would be able to provide each base with more than sufficient data capacity for approximately $30/year for any size deployment. This is substantially cheaper than any other plans I was able to find, the next-cheapest of which cost approximately $10-20/month.
-
-**Unfortunately it seems like Page Plus doesn't provide SIM cards, so can only be used with CDMA phones?**
-
-Another option is these pre-paid Vodafone SIM cards:
+Pre-paid Vodafone SIM cards:
 - [1MB/month for a year](http://www.embeddedworks.net/wsim2730.html) for $31.27, or $2.61/MB
 - [5MB/month for 6 months](http://www.embeddedworks.net/wsim2737.html) for $46.11, or $1.54/MB
 - [10MB/month for a year](http://www.embeddedworks.net/wsim2786.html) for $137.41, or $1.15/MB
 
-Regarding hardware, we would need to provide each base with a modem capable of translating between the Pi and the cellular network. Possibilities include this [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
+### 3G modems
+
+There's a [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
 
 [Verified 3G USB dongles](http://elinux.org/RPi_VerifiedPeripherals#USB_3G_Dongles)
 
-    sudo apt-get install usb-modeswitch wvdial
-    sudo wvdialconf
+### alternatives
 
-We need to consider whether the benefits of moving to cellular networks outweight the costs:
+connect the HSDPA (3G) dongle to an [Arduino USB Host Shield](https://www.sparkfun.com/products/9947), to see how easy direct USB 3G modem AT commands are... possibly not easy.
 
-**PROS**
-- Easier deployment (and re-deployment)
-- More consistent deployment
-- Remove dependence on building networks
-- Remove the need to develop a wifi configuration process
-
-**CONS**
-- Additional base cost
-- Annual data fee
-- Larger size of base/casing
-- Dependancy on pricing of the cellular plan
+connect a [FONA GSM (2G) board](https://www.adafruit.com/fona) to an Arduino or whatever. this isn't cheaper than a Raspberry Pi, but could lead to a cheaper PCB.
