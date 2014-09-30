@@ -31,17 +31,20 @@ TODO - use EE=1 on all nodes, to enable encryption?
 
 ### Power Consumption
 
-cyclic sleep < 50µA
+- regulator quiescent current < 4µA
+- XBee cyclic sleep current < 50µA
+- Xbee transmit current < 45mA
+- XBee idle/receive current < 50mA
+- TMP36 operating current < 50µA
+- XBee ADC current? **not sure** TMP36 claims to have a low impedance, and XBee analog input claims to have a max source impedance of 10kΩ... so do we need to hook it up via a resistor to increase the impedance?
 
-transmit < 45mA
+- total sleeping current < 54µA
+- total waking current < 100mA
 
-So if we transmit for 1 second every hour, then we use 63µAh per hour, so a 1000mAh battery would last 1.8 years.
+So if we transmit for 5 seconds every hour, we use 193µAh per hour, so 3x1000mAh battery would last 1.77 years.
 
-If we transmit for 5 seconds every hour, we use 112µAh per hour, so a 1000mAh battery would last 1.0 years.
+And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 3x1000mAh battery would last 0.56 years.
 
-If we transmit for 1 second every minute, we use 800µAh per hour, so a 1000mAh battery would last 52 days.
-
-If we transmit for 5 seconds every minute, we use 3.8mAh per hour, so a 1000mAh battery would last 11 days.
 
 ### hub node
 
