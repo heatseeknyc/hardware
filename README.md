@@ -31,19 +31,23 @@ TODO - use EE=1 on all nodes, to enable encryption?
 
 ### Power Consumption
 
-- regulator quiescent current < 4µA
+The input range of the MCP1700 is about 3.5V to absolute maximum 6.5V,
+so we use 4xAAA batteries, which gives us an initial voltage of about 6.4V, and a voltage of about 4V after 1000mAh.
+
+- MCP1700 quiescent current < 4µA
 - XBee cyclic sleep current < 50µA
 - Xbee transmit current < 45mA
 - XBee idle/receive current < 50mA
-- TMP36 operating current < 50µA
-- XBee ADC current? **not sure** TMP36 claims to have a low impedance, and XBee analog input claims to have a max source impedance of 10kΩ... so do we need to hook it up via a resistor to increase the impedance?
+- XBee ADC current **??**
+- MCP9700 operating current < 12µA
 
+**TODO** measure these!
 - total sleeping current < 54µA
 - total waking current < 100mA
 
-So if we transmit for 5 seconds every hour, we use 193µAh per hour, so 3x1000mAh battery would last 1.77 years.
+So if we transmit for 5 seconds every hour, we use 193µAh per hour, so 4x1000mAh battery would last 2.4 years.
 
-And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 3x1000mAh battery would last 0.56 years.
+And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000mAh battery would last 0.7 years.
 
 
 ### hub node
