@@ -1579,6 +1579,8 @@ SMT header is CONN-09042.</description>
 <sheets>
 <sheet>
 <plain>
+<text x="167.64" y="10.16" size="2.54" layer="94">Harold Cooper</text>
+<text x="238.76" y="7.62" size="2.54" layer="94">v0.1</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
