@@ -10,4 +10,4 @@ terminals are offset from bottom by 0.102"
 
 for now we're using Kemet X7R 50V ±10% ceramic 0805s and through-hole radial capacitors
 
-so to search go here - http://www.digikey.com/product-search/en?v=399&pv3=3&pv14=32&pv17=5&pv16=2&pv16=6&stock=1&pbfree=1&rohs=1 - and then filter by capacitance
+so to search go here - http://www.digikey.com/product-search/en?v=399&pv14=32&pv17=5&pv16=2&pv16=6&stock=1&pbfree=1&rohs=1 - and then filter by capacitance
