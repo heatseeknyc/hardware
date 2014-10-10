@@ -5,6 +5,8 @@
 
 #### battery holder dimensions
 
+https://github.com/heatseeknyc/hardware/blob/master/pcb/flat-case-squat-case-and-us-quarter.stl
+
 ##### [flat](http://www.digikey.com/product-detail/en/2481/2481K-ND/303826)
 
 51mm W x 54mm L x 23mm (13mm + 10mm) D (assuming PC pins are clipped)
