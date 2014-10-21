@@ -52,7 +52,7 @@ And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000
 
 #### battery holder dimensions
 
-https://github.com/heatseeknyc/hardware/blob/master/pcb/flat-case-squat-case-and-us-quarter.stl
+[3d model](flat-case-squat-case-and-us-quarter.stl) of flat and squat cases and a quarter
 
 ##### [flat](http://www.digikey.com/product-detail/en/2481/2481K-ND/303826)
 
