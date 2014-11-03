@@ -8,11 +8,12 @@
 
 
 ## Basic Setup
+*get hub <name> from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)
 ```sh
 sudo raspi-config
 # 1, 2, 4 > Locale, reboot
 sudo raspi-config
-# 4 > Change Timezone, 8 > Hostname > heatseek-hub-<abcd>, 8 > Serial > Off, reboot
+# 4 > Change Timezone, 8 > Hostname > heatseek-hub-<name>, 8 > Serial > Off, reboot
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install emacs23-nox screen usb-modeswitch wvdial
 sudo wvdialconf
@@ -40,10 +41,11 @@ sudo emacs /etc/ssh/sshd_config
 ```
 
 **on the π**
+*get port <n>umber from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)
 ```sh
 ssh-keygen
 ssh-copy-id harold@sparser.org
-crontab -e
+crontab -e # get <n> from DEPLOYMENTS.md
 # * * * * * ssh -fR '*:2200<n>:127.0.0.1:22' harold@sparser.org sleep 45 2>>cron-log.txt
 # * * * * * curl -X POST -d `hostname` http://requestb.in/13thhde1 2>>cron-log.txt
 ```
