@@ -8,7 +8,7 @@
 
 
 ## Basic Setup
-*get hub <name> from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)
+*get hub `<name>` from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)*
 ```sh
 sudo raspi-config
 # 1, 2, 4 > Locale, reboot
@@ -41,7 +41,7 @@ sudo emacs /etc/ssh/sshd_config
 ```
 
 **on the π**
-*get port <n>umber from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)
+*get port `<n>`umber from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)*
 ```sh
 ssh-keygen
 ssh-copy-id harold@sparser.org
