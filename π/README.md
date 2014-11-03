@@ -22,7 +22,7 @@ sudo emacs /etc/wvdial.conf
 # Password = None
 # Username = None
 # Stupid Mode = 1
-# Init3 = AT+CGDCONT=1,”IP”,”epc.tmobile.com”
+# Init3 = AT+CGDCONT=1,"IP","epc.tmobile.com"
 # Auto DNS = off
 sudo emacs /etc/ppp/peers/wvdial
 # # usepeerdns
