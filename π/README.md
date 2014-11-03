@@ -47,7 +47,7 @@ ssh-keygen
 ssh-copy-id harold@sparser.org
 crontab -e # get <n> from DEPLOYMENTS.md
 # * * * * * ssh -fR '*:2200<n>:127.0.0.1:22' harold@sparser.org sleep 45 2>>cron-log.txt
-# * * * * * curl -X POST -d `hostname` http://requestb.in/13thhde1 2>>cron-log.txt
+# * * * * * curl -sSd "$(hostname)" http://requestb.in/13thhde1 2>>cron-log.txt
 ```
 
 
