@@ -34,13 +34,13 @@ sudo emacs /etc/resolv.conf
 
 ## Let the Internet In, Through an SSH Tunnel
 
-**on the tunnel host (e.g. sparser.org)**
+### on the tunnel host (e.g. sparser.org)
 ```sh
 sudo emacs /etc/ssh/sshd_config
 # GatewayPorts yes
 ```
 
-**on the π**
+### on the π
 *get port `<n>`umber from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)*
 ```sh
 ssh-keygen
