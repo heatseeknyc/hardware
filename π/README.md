@@ -15,7 +15,7 @@ sudo raspi-config
 sudo raspi-config
 # 4 > Change Timezone, 8 > Hostname > heatseek-hub-<name>, 8 > Serial > Off, reboot
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install emacs23-nox screen usb-modeswitch wvdial
+sudo apt-get install emacs23-nox usb-modeswitch wvdial
 sudo wvdialconf
 sudo emacs /etc/wvdial.conf
 # Phone = *99#
