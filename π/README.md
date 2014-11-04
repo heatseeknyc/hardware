@@ -26,9 +26,10 @@ sudo emacs /etc/wvdial.conf
 # Auto DNS = off
 sudo emacs /etc/ppp/peers/wvdial
 # # usepeerdns
-sudo emacs /etc/resolv.conf.head
+sudo emacs /etc/resolv.conf
 # nameserver 8.8.8.8
 # nameserver 8.8.4.4
+sudo chattr +i /etc/resolv.conf
 ```
 
 
