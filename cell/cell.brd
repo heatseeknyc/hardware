@@ -495,10 +495,10 @@ design rules under a new name.</description>
 <contactref element="C1" pad="1"/>
 <via x="28.9814" y="2.5908" extent="1-16" drill="1.016"/>
 <contactref element="MCP1700" pad="2"/>
-<wire x1="24.5" y1="3.81" x2="25.7192" y2="2.5908" width="0.254" layer="1"/>
-<wire x1="25.7192" y1="2.5908" x2="28.9814" y2="2.5908" width="0.254" layer="1"/>
-<wire x1="24.5" y1="3.81" x2="23.23" y2="5.08" width="0.254" layer="1"/>
-<wire x1="23.23" y1="5.08" x2="22.12" y2="5.08" width="0.254" layer="1"/>
+<wire x1="24.5" y1="3.81" x2="25.7192" y2="2.5908" width="0.3048" layer="1"/>
+<wire x1="25.7192" y1="2.5908" x2="28.9814" y2="2.5908" width="0.3048" layer="1"/>
+<wire x1="24.5" y1="3.81" x2="23.23" y2="5.08" width="0.3048" layer="1"/>
+<wire x1="23.23" y1="5.08" x2="22.12" y2="5.08" width="0.3048" layer="1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="C3" pad="1"/>
@@ -517,10 +517,10 @@ design rules under a new name.</description>
 <vertex x="35.56" y="34.29"/>
 <vertex x="35.56" y="0"/>
 </polygon>
-<via x="21.59" y="8.89" extent="1-16" drill="0.508"/>
+<via x="22.225" y="8.255" extent="1-16" drill="0.508"/>
 <wire x1="24.5" y1="6.58" x2="22.12" y2="6.58" width="0.254" layer="1"/>
-<wire x1="21.59" y1="8.89" x2="21.59" y2="6.58" width="0.254" layer="1"/>
-<wire x1="21.59" y1="6.58" x2="22.12" y2="6.58" width="0.254" layer="1"/>
+<wire x1="22.225" y1="8.255" x2="22.225" y2="6.58" width="0.3048" layer="1"/>
+<wire x1="22.225" y1="6.58" x2="22.12" y2="6.58" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="C6" pad="1"/>
@@ -549,7 +549,7 @@ design rules under a new name.</description>
 <signal name="N$4">
 </signal>
 <signal name="N$5">
-<wire x1="21.59" y1="5.08" x2="19.05" y2="5.08" width="0.254" layer="1"/>
+<wire x1="21.59" y1="5.08" x2="19.05" y2="5.08" width="0.3048" layer="1"/>
 </signal>
 </signals>
 <errors>
@@ -558,6 +558,8 @@ design rules under a new name.</description>
 <approved hash="19,1,d78930c8e843f4fc"/>
 <approved hash="19,1,62f48cead4ebc0ae"/>
 <approved hash="19,1,7916e786fa7d9eb6"/>
+<approved hash="19,1,d6163e7fca34dc06"/>
+<approved hash="19,1,24a831882c71c70a"/>
 </errors>
 </board>
 </drawing>
