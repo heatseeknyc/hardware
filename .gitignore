@@ -1,5 +1,21 @@
 *~
-*~.*
-*.epf
 .DS_Store
-/data
+
+# Eagle intermediates
+*.epf
+*.b#*
+*.s#*
+
+# Gerbers
+*.GBL
+*.GBO
+*.GBS
+*.GKO
+*.GML
+*.GTL
+*.GTO
+*.GTP
+*.GTS
+*.TXT
+*.dri
+*.gpi
