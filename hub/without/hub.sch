@@ -935,8 +935,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1µF"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="8.2pF"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1µF"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="8.2pF"/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 </parts>
@@ -955,8 +955,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="GND2" gate="1" x="78.74" y="114.3"/>
 <instance part="SUPPLY3" gate="G$1" x="83.82" y="111.76"/>
 <instance part="GND4" gate="1" x="83.82" y="86.36"/>
-<instance part="C3" gate="G$1" x="83.82" y="106.68"/>
-<instance part="C4" gate="G$1" x="91.44" y="106.68"/>
+<instance part="C1" gate="G$1" x="83.82" y="106.68"/>
+<instance part="C2" gate="G$1" x="91.44" y="106.68"/>
 <instance part="GND3" gate="1" x="73.66" y="104.14"/>
 <instance part="SUPPLY2" gate="G$1" x="50.8" y="101.6"/>
 </instances>
@@ -970,8 +970,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<pinref part="C4" gate="G$1" pin="1"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="83.82" y1="111.76" x2="91.44" y2="111.76" width="0.1524" layer="91"/>
 <junction x="83.82" y="111.76"/>
 <wire x1="91.44" y1="111.76" x2="99.06" y2="111.76" width="0.1524" layer="91"/>
@@ -996,12 +996,12 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="71.12" y1="116.84" x2="78.74" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="83.82" y1="104.14" x2="83.82" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="88.9" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
 <junction x="83.82" y="88.9"/>
-<pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="91.44" y1="88.9" x2="83.82" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="104.14" x2="91.44" y2="88.9" width="0.1524" layer="91"/>
 <junction x="91.44" y="88.9"/>
