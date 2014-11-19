@@ -46,9 +46,11 @@ And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000
 
 ### Mechanical
 
-#### XBee dimensions, including [socket](http://www.sullinscorp.com/drawings/75_1BFC_10483.pdf)
+#### XBee dimensions, including *full height* of [socket](http://www.sullinscorp.com/drawings/75_1BFC_10483.pdf)
 
-25mm W x 28mm L x 10mm (3mm + 7mm) D
+XBee is smaller than XBee-PRO, `32.94mm - 5.33mm = 27.61mm`
+
+    24.38mm W x 27.61mm D x 9.79mm (2.79mm + 7.0mm) H
 
 #### battery holder dimensions
 
@@ -56,11 +58,11 @@ And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000
 
 ##### [flat](http://www.digikey.com/product-detail/en/2481/2481K-ND/303826)
 
-51mm W x 54mm L x 23mm (13mm + 10mm) D (assuming PC pins are clipped)
+50.79mm W x 54.51mm D x 23.29mm (13.5mm + 9.79mm) H (assuming PC pins are clipped)
 
 ##### [squat](http://www.digikey.com/product-detail/en/BH24AAAW/BH24AAAW-ND/38633)
 
-26mm W x 53mm L x 35mm (25mm + 10mm) D
+26mm W x 53mm D x 35mm (25mm + 10mm) H
 
 #### flat battery holder mounting
 
