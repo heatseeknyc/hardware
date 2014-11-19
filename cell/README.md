@@ -46,6 +46,12 @@ And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000
 
 ### Mechanical
 
+#### flat battery holder mounting
+
+assuming symmetry, mounting hole centers are offset from left and right edges by (1.98" - 0.5") / 2 = 0.74"
+
+terminals are offset from bottom by 0.102"
+
 #### XBee dimensions, including *full height* of [socket](http://www.sullinscorp.com/drawings/75_1BFC_10483.pdf)
 
 XBee is smaller than XBee-PRO, `32.94mm - 5.33mm = 27.61mm`
@@ -65,8 +71,16 @@ XBee is smaller than XBee-PRO, `32.94mm - 5.33mm = 27.61mm`
 
     26mm W x 53mm D x 35mm (25mm + 10mm) H
 
-#### flat battery holder mounting
+#### cases
 
-assuming symmetry, mounting hole centers are offset from left and right edges by (1.98" - 0.5") / 2 = 0.74"
+##### [TS-3315P](http://www.polycase.com/ts-3315p)
 
-terminals are offset from bottom by 0.102"
+    3.00" x 3.00" x 1.50", weight=2.1oz, volume=13.5""", price=$2.05
+
+##### [LP-41P](http://www.polycase.com/lp-41p)
+
+    3.29" x 3.29" x 1.25", weight=3.2oz, volume=13.53""", price=$2.66
+
+##### [CU-791](http://www.budind.com/view/Plastic+Boxes/Utilibox+Style+E)
+
+    3.08" x 3.08" x 1.50", weight=1.5oz, volume=14.23""", price=$2.86
