@@ -59,7 +59,7 @@ XBee is smaller than XBee-PRO, `32.94mm - 5.33mm = 27.61mm`
 ##### [flat](http://www.digikey.com/product-detail/en/2481/2481K-ND/303826)
 
     50.79mm W x 54.51mm D x 23.29mm (13.5mm + 9.79mm) H
-    2.00" W x 2.15" D x 0.92"
+    2.00" W x 2.15" D x 0.92" H
 
 ##### [squat](http://www.digikey.com/product-detail/en/BH24AAAW/BH24AAAW-ND/38633)
 
