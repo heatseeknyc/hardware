@@ -7,7 +7,7 @@
 - **D0** = 2
 - **D9** = 1
 - **D*** = 0
-- **PR** = 0
+- **PR** = 80 *can be 0 only once we start grounding DIN/!CONFIG*
 - **IR** = FFFF
 - **SM** = 8
 
@@ -34,14 +34,15 @@ so we use 4xAAA batteries, which gives us an initial voltage of about 6.4V, and 
 - XBee idle/receive current < 50mA
 - XBee ADC current **??**
 - MCP9700 operating current < 12µA
+- !CONFIG pullup current = 66µA
 
 **TODO** measure these!
-- total sleeping current < 54µA
+- total sleeping current < 120µA
 - total waking current < 100mA
 
-So if we transmit for 5 seconds every hour, we use 193µAh per hour, so 4x1000mAh battery would last 2.4 years.
+So if we transmit for 5 seconds every hour, we use 259µAh per hour, so 4x1000mAh battery would last 1.7 years.
 
-And if we transmit for 20 seconds every hour, we use 610µAh per hour, so 4x1000mAh battery would last 0.7 years.
+And if we transmit for 20 seconds every hour, we use 676µAh per hour, so 4x1000mAh battery would last 0.6 years.
 
 
 ### Mechanical
