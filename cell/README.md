@@ -7,7 +7,7 @@
 - **D0** = 2
 - **D9** = 1
 - **D*** = 0
-- **PR** = 80 *can be 0 only once we start grounding DIN/!CONFIG*
+- **PR** = 80 *will use 0 for cell≥v0.4, where DIN/!CONFIG is grounded*
 - **IR** = FFFF
 - **SM** = 8
 
