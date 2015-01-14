@@ -13,7 +13,7 @@
 sudo raspi-config
 # 1, 2, 4 > Locale, reboot
 sudo raspi-config
-# 4 > Change Timezone, 8 > Hostname > heatseek-hub-<name>, 8 > Serial > Off, reboot
+# 4 > Change Timezone, Change Keyboard Layout, 8 > Hostname > heatseek-hub-<name>, 8 > Serial > Off, reboot
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install emacs23-nox usb-modeswitch wvdial
 sudo wvdialconf
