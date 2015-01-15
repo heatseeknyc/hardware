@@ -50,7 +50,7 @@ def read_sensor(xbee):
               .format(round(time.time()), sensor_global_id, round(fahrenheit), signature))
 
 def main():
-    logging.info('attempting connection to ftdi usb...')
+    logging.info('attempting serial connection...')
     with serial.Serial('/dev/ttyAMA0') as xbee: # defaults to 9600/8N1
         logging.info('...connected')
         while True:
