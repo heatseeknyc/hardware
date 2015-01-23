@@ -5,6 +5,8 @@ import serial
 from struct import Struct
 import time
 
+from . import database
+
 SHORT = Struct('>H') # big endian unsigned short
 
 def read(f, length):
@@ -15,7 +17,7 @@ def read(f, length):
         time.sleep(0.01)
     return s
 
-def read_sensor(xbee):
+def read_sensor(xbee, db):
     frame_start, = read(xbee, 1)
     if frame_start != 0x7E:
         raise Exception('expected frame start byte 0x7E but got {:02X}'.format(frame_start))
@@ -44,20 +46,17 @@ def read_sensor(xbee):
         
         sensor_global_id = binascii.hexlify(sensor_global_id).decode('ascii')
 
-        signature = 'c0ffee' # TODO actually sign row using a secret key
+        db.insert(sensor_global_id, round(fahrenheit, 2))
 
-        print('{}\t{}\t{}\t{}'
-              .format(round(time.time()), sensor_global_id, round(fahrenheit), signature))
 
 def main():
-    logging.info('attempting serial connection...')
-    with serial.Serial('/dev/ttyAMA0') as xbee: # defaults to 9600/8N1
-        logging.info('...connected')
-        while True:
-            try:
-                read_sensor(xbee)
-            except Exception:
-                logging.exception("failed to read a packet")
+    xbee = serial.Serial('/dev/ttyAMA0') # defaults to 9600/8N1
+    db = database.Database()
+    while True:
+        try:
+            read_sensor(xbee, db)
+        except Exception:
+            logging.exception("failed to read a packet")
 
 if __name__ == '__main__':
     main()
