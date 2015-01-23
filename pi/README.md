@@ -8,14 +8,15 @@
 
 
 ## Basic Setup
-*get hub `<name>` from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)*
 ```sh
 sudo raspi-config
 # 1, 2, 4 > Locale, reboot
 sudo raspi-config
-# 4 > Change Timezone, Change Keyboard Layout, 8 > Hostname > heatseek-hub-<name>, 8 > Serial > Off, reboot
+# 4 > Change Timezone, Change Keyboard Layout, 8 > Serial > Off, reboot
+
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install emacs23-nox usb-modeswitch wvdial
+sudo apt-get install emacs23-nox usb-modeswitch wvdial autossh supervisor
+
 sudo wvdialconf
 sudo emacs /etc/wvdial.conf
 # Phone = *99#
@@ -30,25 +31,12 @@ sudo emacs /etc/resolv.conf
 # nameserver 8.8.8.8
 # nameserver 8.8.4.4
 sudo chattr +i /etc/resolv.conf
-```
 
+sudo ssh-keygen
+sudo ssh-copy-id hubs.heatseeknyc.com
 
-## Let the Internet In, Through an SSH Tunnel
-
-### on the tunnel host (e.g. sparser.org)
-```sh
-sudo emacs /etc/ssh/sshd_config
-# GatewayPorts yes
-```
-
-### on the π
-*get port `<n>`umber from [the deployments spreadsheet](https://docs.google.com/spreadsheets/d/1yk-R_rF-0QqRmxfcSnsiBipPfZUVG2DtNUoTY1Ut6RI/edit)*
-```sh
-ssh-keygen
-ssh-copy-id harold@sparser.org
-crontab -e # get <n> from DEPLOYMENTS.md
-# * * * * * ssh -fR '*:2200<n>:127.0.0.1:22' harold@sparser.org sleep 45 2>>cron-log.txt
-# * * * * * curl -sSd "$(hostname)" http://requestb.in/13thhde1 2>>cron-log.txt
+sudo ln -s /home/pi/hardware/pi/supervisor.conf /etc/supervisor/conf.d/heatseeknyc.conf
+sudo supervisorctl reload
 ```
 
 
