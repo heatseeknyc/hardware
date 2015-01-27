@@ -17,14 +17,7 @@ sudo raspi-config
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install emacs23-nox usb-modeswitch wvdial autossh supervisor
 
-sudo wvdialconf
-sudo emacs /etc/wvdial.conf
-# Phone = *99#
-# Password = None
-# Username = None
-# Stupid Mode = 1
-# Init3 = AT+CGDCONT=1,"IP","epc.tmobile.com"
-# Auto DNS = off
+sudo ln -s /home/pi/hardware/pi/conf/wvdial.conf /etc/
 sudo emacs /etc/ppp/peers/wvdial
 # # usepeerdns
 sudo emacs /etc/resolv.conf
@@ -35,7 +28,7 @@ sudo chattr +i /etc/resolv.conf
 sudo ssh-keygen
 sudo ssh-copy-id hubs.heatseeknyc.com
 
-sudo ln -s /home/pi/hardware/pi/supervisor.conf /etc/supervisor/conf.d/heatseeknyc.conf
+sudo ln -s /home/pi/hardware/pi/conf/supervisor.conf /etc/supervisor/conf.d/heatseeknyc.conf
 sudo supervisorctl reload
 ```
 
