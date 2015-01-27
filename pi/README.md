@@ -15,9 +15,13 @@ sudo raspi-config
 # 4 > Change Timezone, Change Keyboard Layout, 8 > Serial > Off, reboot
 
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install emacs23-nox usb-modeswitch wvdial autossh supervisor
+sudo apt-get install usb-modeswitch wvdial autossh supervisor
 
-sudo ln -s /home/pi/hardware/pi/conf/wvdial.conf /etc/
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+sudo pip3 install -Ur requirements.txt
+
+sudo ln -sf /home/pi/hardware/pi/conf/wvdial.conf /etc/
 sudo emacs /etc/ppp/peers/wvdial
 # # usepeerdns
 sudo emacs /etc/resolv.conf
@@ -26,7 +30,7 @@ sudo emacs /etc/resolv.conf
 sudo chattr +i /etc/resolv.conf
 
 sudo ssh-keygen
-sudo ssh-copy-id hubs.heatseeknyc.com
+sudo ssh-copy-id hubs@hubs.heatseeknyc.com
 
 sudo ln -s /home/pi/hardware/pi/conf/supervisor.conf /etc/supervisor/conf.d/heatseeknyc.conf
 sudo supervisorctl reload

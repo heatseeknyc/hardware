@@ -37,7 +37,7 @@ def listen(xbee, db):
 
         logging.info('mac={} adc=0x{:x} voltage={:.2f} celsius={:.2f} fahrenheit={:.2f}'.format(mac, adc, voltage, celsius, fahrenheit))
         
-        db.insert_temperature(mac, round(fahrenheit, 2))
+        db.insert_reading(mac, round(fahrenheit, 2))
 
 @common.forever
 def main():

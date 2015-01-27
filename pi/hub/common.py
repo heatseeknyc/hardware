@@ -1,5 +1,6 @@
 import functools
 import logging
+import re
 import sqlite3
 import time
 
@@ -19,19 +20,27 @@ def forever(f):
 class Database:
     def __init__(self):
         self.db = sqlite3.connect('heatseeknyc.db')
-        self.db.execute('create table if not exists temperatures (xbee, time, temperature)')
-        self.db.execute('create table if not exists transmitted as select 0 as temperature_id')
+        self.db.execute('create table if not exists readings (xbee, time, temperature)')
+        self.db.execute('create table if not exists transmitted as select 0 as reading_id')
 
-    def insert_temperature(self, xbee, temperature):
+    def insert_reading(self, xbee, temperature):
         with self.db as db:
-            db.execute('insert into temperatures values (?, ?, ?)',
+            db.execute('insert into readings values (?, ?, ?)',
                        (xbee, round(time.time()), temperature))
 
-    def get_untransmitted_temperatures(self):
+    def get_untransmitted_readings(self):
         with self.db as db:
-            (temperature_id,), = db.execute('select temperature_id from transmitted')
-            return db.execute('select rowid, * from temperatures where rowid > ?', temperature_id)
+            (reading_id,), = db.execute('select reading_id from transmitted')
+            return db.execute('select rowid, * from readings where rowid > ?', reading_id)
 
-    def set_transmitted_temperatures(self, temperature_id):
+    def set_transmitted_readings(self, reading_id):
         with self.db as db:
-            db.execute('update transmitted set temperature_id = ?', temperature_id)
+            db.execute('update transmitted set reading_id = ?', reading_id)
+
+_PI_ID_RE = re.compile('^Serial\s*: (\w*)')
+def _get_pi_id():
+    with open('/proc/cpuinfo') as f:
+        for line in f:
+            groups = _PI_ID_RE.findall(line)
+            if groups: return group[1]
+PI_ID = _get_pi_id() or 'unknown'
