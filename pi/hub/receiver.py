@@ -26,18 +26,19 @@ def listen(xbee, db):
     if frame[0] == 0x92: # IO Data Sample RX
         if length != 18:
             raise Exception('expected length of 18 for 0x92 frame, but got {}'.format(length))
-        mac = frame[1:1+8]
+        cell_id = frame[1:1+8]
         adc, = SHORT.unpack(frame[16:16+2])
 
-        mac = binascii.hexlify(mac).decode('ascii')
+        cell_id = binascii.hexlify(cell_id).decode('ascii')
 
         voltage = adc / 0x3FF * 3.3 # on Xbee, 0x3FF (highest value on a 10-bit ADC) corresponds to VCC...ish
         celsius = (voltage - 0.5) / 0.01 # on MCP9700A, 0.5V is 0C, and every 0.01V difference is 1C difference
         fahrenheit = celsius * (212 - 32) / 100 + 32
 
-        logging.info('mac={} adc=0x{:x} voltage={:.2f} celsius={:.2f} fahrenheit={:.2f}'.format(mac, adc, voltage, celsius, fahrenheit))
-        
-        db.insert_reading(mac, round(fahrenheit, 2))
+        logging.info('cell_id={} adc=0x{:x} voltage={:.2f} celsius={:.2f} fahrenheit={:.2f}'.format(cell_id, adc, voltage, celsius, fahrenheit))
+
+        # our resolution ends up being about 0.6F, so we round to 1 digit:
+        db.insert_reading(cell_id, round(fahrenheit, 1))
 
 @common.forever
 def main():
