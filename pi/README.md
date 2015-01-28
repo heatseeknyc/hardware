@@ -14,11 +14,9 @@ sudo raspi-config
 sudo raspi-config
 # 4 > Change Timezone, Change Keyboard Layout, 8 > Serial > Off, reboot
 
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install usb-modeswitch wvdial autossh supervisor
-
-wget https://bootstrap.pypa.io/get-pip.py
-sudo python3 get-pip.py
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install usb-modeswitch wvdial autossh supervisor python3-pip
 sudo pip3 install -Ur requirements.txt
 
 sudo ln -sf /home/pi/hardware/pi/conf/wvdial.conf /etc/
