@@ -20,8 +20,6 @@ def forever(f):
 class Database:
     def __init__(self):
         self.db = sqlite3.connect('heatseeknyc.db')
-        self.db.execute('create table if not exists readings (cell_id, time, temperature)')
-        self.db.execute('create table if not exists transmitted as select 0 as reading_id')
 
     def insert_reading(self, cell_id, temperature):
         with self.db as db:
