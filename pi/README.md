@@ -16,7 +16,7 @@ sudo raspi-config
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install usb-modeswitch wvdial supervisor python3-pip
+sudo apt-get install usb-modeswitch wvdial supervisor python3-pip vnstat
 sudo pip3 install -Ur requirements.txt
 
 sudo ln -sf /home/pi/hardware/pi/conf/wvdial.conf /etc/
