@@ -1,5 +1,8 @@
 PI_ID=$(grep '^Serial\s*: ' /proc/cpuinfo | awk '{print $3}')
 
+# TODO query local xbee MAC via serial
+# TODO vnstat -i ppp0 --oneline
+
 PORT=""
 while true
 do NEWPORT=$(grep '^Allocated port ' /var/log/supervisor/ssh-stderr* | tail -1 | awk '{print $3}')
