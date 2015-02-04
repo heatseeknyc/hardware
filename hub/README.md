@@ -4,7 +4,6 @@
 ### DigiMesh firmware
 
 - **ID** = 311
-- **NI** = "hub"
 - **AP** = 1
 - **SM** = 7
 - **SO** = 1
