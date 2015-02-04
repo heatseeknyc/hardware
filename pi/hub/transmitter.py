@@ -20,11 +20,11 @@ def transmit(db):
 
 @common.forever
 def main():
-    db = common.Database()
-    logging.info('connected to database.')
-    while True:
-        transmit(db)
-        time.sleep(1)
+    with common.Database() as db:
+        logging.info('connected to database.')
+        while True:
+            transmit(db)
+            time.sleep(1)
 
 if __name__ == '__main__':
     logging.info('starting...')

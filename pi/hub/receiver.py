@@ -42,10 +42,8 @@ def listen(xbee, db):
 
 @common.forever
 def main():
-    db = common.Database()
-    logging.info('connected to database.')
-    with serial.Serial('/dev/ttyAMA0') as xbee:
-        logging.info('connected to xbee.')
+    with serial.Serial('/dev/ttyAMA0') as xbee, common.Database() as db:
+        logging.info('connected to xbee and database.')
         while True:
             listen(xbee, db)
 
