@@ -3,7 +3,7 @@
 
 ### DigiMesh firmware
 
-- **ID** = hub network id
+- **ID** = 311
 - **D0** = 2
 - **D9** = 1
 - **D*** = 0
