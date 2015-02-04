@@ -6,7 +6,7 @@
 - **ID** = 311
 - **AP** = 1
 - **SM** = 7
-- **SO** = 1
+- **SO** = 1 *TODO change to zero, in case multiple hubs see each other?*
 - **SP** = 1770 (1 minute) or 57E40 (1 hour)
 
 
