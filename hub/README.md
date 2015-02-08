@@ -1,16 +1,7 @@
-## Hub node
+# Hub node
 
 
-### DigiMesh firmware
-
-- **ID** = 311
-- **AP** = 1
-- **SM** = 7
-- **SO** = 1 *TODO change to zero, in case multiple hubs see each other?*
-- **SP** = 1770 (1 minute) or 57E40 (1 hour)
-
-
-### Serial connection
+## Serial connection
 
 - GPIO pin 1 (3v3) to XBee pin 1 (VCC)
 - GPIO pin 6 (GND) to XBee pin 10 (GND)
@@ -20,7 +11,7 @@
 ![GPIO pin layout](basic-gpio-layout.png)
 
 
-### Data usage
+## Data usage
 
 Assuming each reading is ~100 bytes (the reading itself may be as little as 20-30 bytes, plus the HTTP headers), and each cell takes 24 readings per day, that's 24 x 100 = 2,400 bytes per day per cell, or 2.4 kilobytes (roughly, 1kb = 1024b).
 
@@ -43,14 +34,14 @@ Pre-paid Vodafone SIM cards:
 - [10MB/month for a year](http://www.embeddedworks.net/wsim2786.html) for $137.41, or $1.15/MB
 
 
-### 3G modems
+## 3G modems
 
 There's a [generic stick](http://www.amazon.com/Generic-Wireless-7-2Mbps-Dongle-Function/dp/B00MHAKIJY/ref=sr_1_10?ie=UTF8&qid=1410451158&sr=8-10&keywords=usb+modem+wireless) for ~$13 and a [branded alternative](http://www.amazon.com/Huawei-E173-Unlocked-HSDPA-7-2Mbps/dp/B0055310KQ) for ~$26. Given that we currently budget $6 for a USB WiFi dongle, each of these represents some increase to the cost of the base, $7 and $20, respectively.
 
 [Verified 3G USB dongles](http://elinux.org/RPi_VerifiedPeripherals#USB_3G_Dongles)
 
 
-### Alternatives
+## Alternatives
 
 connect the HSDPA (3G) dongle to an [Arduino USB Host Shield](https://www.sparkfun.com/products/9947), to see how easy direct USB 3G modem AT commands are... possibly not easy.
 
