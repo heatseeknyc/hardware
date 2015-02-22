@@ -19,19 +19,25 @@ so we use 4xAAA batteries, which gives us an initial voltage of about 6.4V, and 
 
 - MCP1700 quiescent current < 4µA
 - XBee cyclic sleep current < 50µA
-- Xbee transmit current < 45mA
-- XBee idle/receive current < 50mA
+- Xbee transmit current < 45mA / 250mA PRO
+- XBee idle/receive current < 50mA / 55mA PRO
 - XBee ADC current **??**
 - MCP9700 operating current < 12µA
-- !CONFIG pullup current = 66µA
+- !CONFIG pullup current = 66µA **TODO** is this enabled during sleep?
 
 **TODO** measure these!
 - total sleeping current < 120µA
-- total waking current < 100mA
+- total waking current < 50mA / 250mA PRO
 
-So if we transmit for 5 seconds every hour, we use 259µAh per hour, so 4x1000mAh battery would last 1.7 years.
+#### Setup mode
 
-And if we transmit for 20 seconds every hour, we use 676µAh per hour, so 4x1000mAh battery would last 0.6 years.
+If we transmit constantly, we use 50mA / 250mA PRO, so every hour of setup we use 1.3% / 6.3% of the batteries.
+
+#### Live mode
+
+So if we transmit for 5 seconds every hour, we use 190µAh / 468µAh PRO per hour, so 4x1000mAh battery would last 2.4 / 0.9 PRO years.
+
+And if we transmit for 10 seconds every hour, we use 259µAh / 815µAh PRO per hour, so 4x1000mAh battery would last 1.7 / 0.5 PRO years.
 
 
 ## Mechanical
