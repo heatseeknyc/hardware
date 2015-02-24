@@ -30,7 +30,7 @@ so we use 4xAAA batteries, which gives us an initial voltage of about 6.4V, and 
 
 #### Setup mode
 
-If we transmit constantly, we use 50mA / 250mA PRO, so every hour of setup we use 1.3% / 6.3% of the batteries.
+If we transmit constantly, we use 50mA / 250mA PRO, so every hour of setup we use 1.3% / 6.3% PRO of the batteries.
 
 #### Live mode
 
