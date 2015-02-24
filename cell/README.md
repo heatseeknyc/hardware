@@ -36,7 +36,7 @@ If we transmit constantly, we use 50mA / 250mA PRO, so every hour of setup we us
 
 So if we transmit for 5 seconds every hour, we use 124µAh / 402µAh PRO per hour, so 4x1000mAh battery would last 3.6 / 1.1 PRO years.
 
-And if we transmit for 10 seconds every hour, we use 193µAh / 759µAh PRO per hour, so 4x1000mAh battery would last 2.3 / 0.6 PRO years.
+And if we transmit for 10 seconds every hour, we use 193µAh / 749µAh PRO per hour, so 4x1000mAh battery would last 2.3 / 0.6 PRO years.
 
 
 ## Mechanical
