@@ -12,6 +12,12 @@ for now we're using Kemet X7R 50V ±10% ceramic 0805s and through-hole radial ca
 
 so to search go [here](http://www.digikey.com/product-search/en?v=399&pv14=32&pv16=2&pv16=6&FV=fff40002%2Cfff8000b&stock=1&pbfree=1&rohs=1) and then filter by capacitance
 
+#### Temperature Sensor Chips
+- our current chip: [surface mount analog temperature sensor](http://www.digikey.com/product-detail/en/MCP9700AT-E%2FTT/MCP9700AT-E%2FTTCT-ND/3622388) ±2°C from 0°C to 70°C, $0.24
+- [surface mount RTD](http://www.digikey.com/product-detail/en/PTS080501B500RP100/PTS0805500CT-ND/1666191) ±0.5°C from -40°C to 40°C, $1.91
+- [surface mount analog temperature sensor](http://www.digikey.com/product-detail/en/DS600U%2B/DS600U%2B-ND/1197625), ±0.5°C from -20°C to 100°C, $2.58
+- [ball grid array analog temperature sensor](http://www.digikey.com/product-detail/en/LMT70YFQT/296-42088-1-ND/5252841) ±0.2°C from -20°C to 90°C, $1.73
+
 ### Power consumption
 
 The input range of the MCP1700 is about 3.5V to absolute maximum 6.5V,
