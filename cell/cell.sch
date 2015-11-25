@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1284,62 +1284,51 @@ SMT header is CONN-09042.</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Sensors">
-<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
-In this library you'll find sensors- accelerometers, gyros, compasses, magnetometers, light sensors, imagers, temp sensors, etc.&lt;br&gt;&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<library name="lmt40">
 <packages>
-<package name="SOT23-3">
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
-<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
-<smd name="3" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="2" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="1" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<text x="-0.8255" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+<package name="YFP0004">
+<smd name="VDD" x="0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<smd name="T_ON" x="0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<smd name="TAO" x="-0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<smd name="GND" x="-0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<wire x1="-0.45" y1="0.45" x2="0.45" y2="0.45" width="0.05" layer="21"/>
+<wire x1="0.45" y1="0.45" x2="0.45" y2="-0.45" width="0.05" layer="21"/>
+<wire x1="0.45" y1="-0.45" x2="-0.45" y2="-0.45" width="0.05" layer="21"/>
+<wire x1="-0.45" y1="-0.45" x2="-0.45" y2="0.45" width="0.05" layer="21"/>
+<text x="-0.45" y="0.65" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.45" y="-1.165" size="0.4064" layer="27">&gt;VALUE</text>
+<circle x="-0.7" y="0.7" radius="0.14141875" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
-<symbol name="MCP9700">
-<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
-<text x="-2.286" y="-1.524" size="1.778" layer="95">GND</text>
-<text x="-7.62" y="5.588" size="1.778" layer="95">&gt;Name</text>
-<text x="2.54" y="5.588" size="1.778" layer="96">&gt;Value</text>
-<pin name="GND" x="0" y="-5.08" visible="off" length="short" rot="R90"/>
-<pin name="VCC" x="-10.16" y="2.54" visible="pin" length="short"/>
-<pin name="VO" x="10.16" y="2.54" visible="pin" length="short" rot="R180"/>
+<symbol name="LMT40">
+<wire x1="-12.7" y1="10.16" x2="12.7" y2="10.16" width="0.254" layer="94"/>
+<wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-10.16" x2="-12.7" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-10.16" x2="-12.7" y2="10.16" width="0.254" layer="94"/>
+<pin name="VDD" x="-17.78" y="5.08" length="middle" direction="in"/>
+<pin name="GND" x="-17.78" y="-5.08" length="middle" direction="in"/>
+<pin name="TAO" x="17.78" y="0" length="middle" direction="out" rot="R180"/>
+<pin name="T_ON" x="-17.78" y="0" length="middle" direction="in"/>
+<text x="-12.7" y="10.16" size="1.778" layer="95">&gt;NAME</text>
+<text x="-12.7" y="-12.7" size="1.778" layer="95">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MCP9700">
-<description>Analog-output temperature sensor</description>
+<deviceset name="LMT40">
 <gates>
-<gate name="G$1" symbol="MCP9700" x="0" y="-2.54"/>
+<gate name="G$1" symbol="LMT40" x="0" y="0"/>
 </gates>
 <devices>
-<device name="SMD" package="SOT23-3">
+<device name="" package="YFP0004">
 <connects>
-<connect gate="G$1" pin="GND" pad="3"/>
-<connect gate="G$1" pin="VCC" pad="1"/>
-<connect gate="G$1" pin="VO" pad="2"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="TAO" pad="TAO"/>
+<connect gate="G$1" pin="T_ON" pad="T_ON"/>
+<connect gate="G$1" pin="VDD" pad="VDD"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="PROD_ID" value="IC-08917" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -1373,14 +1362,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="200Ω"/>
 <part name="MCP1700" library="hrldcpr" deviceset="MCP1700" device=""/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1µF"/>
-<part name="MCP9700A" library="SparkFun-Sensors" deviceset="MCP9700" device="SMD"/>
 <part name="XB24" library="hrldcpr" deviceset="XBEE-1" device="XBEE-1"/>
+<part name="U$1" library="lmt40" deviceset="LMT40" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="167.64" y="10.16" size="2.54" layer="94">Harold Cooper</text>
-<text x="238.76" y="7.62" size="2.54" layer="94">v0.4</text>
+<text x="167.64" y="7.62" size="2.54" layer="94">Harold Cooper
+Doyun Kim</text>
+<text x="238.76" y="7.62" size="2.54" layer="94">v0.5</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -1401,8 +1391,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="R1" gate="G$1" x="132.08" y="81.28"/>
 <instance part="MCP1700" gate="G$1" x="104.14" y="119.38"/>
 <instance part="C2" gate="G$1" x="119.38" y="114.3"/>
-<instance part="MCP9700A" gate="G$1" x="149.86" y="78.74"/>
 <instance part="XB24" gate="G$1" x="104.14" y="88.9"/>
+<instance part="U$1" gate="G$1" x="180.34" y="78.74"/>
 </instances>
 <busses>
 </busses>
@@ -1422,8 +1412,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C6" gate="G$1" pin="2"/>
 <pinref part="C6" gate="G$1" pin="2"/>
 <junction x="137.16" y="73.66"/>
-<pinref part="MCP9700A" gate="G$1" pin="GND"/>
-<wire x1="137.16" y1="73.66" x2="149.86" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="137.16" y1="73.66" x2="162.56" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
@@ -1485,10 +1475,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="C6" gate="G$1" pin="1"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="MCP9700A" gate="G$1" pin="VCC"/>
-<pinref part="MCP9700A" gate="G$1" pin="VCC"/>
-<wire x1="139.7" y1="81.28" x2="137.16" y2="81.28" width="0.1524" layer="91"/>
 <junction x="137.16" y="81.28"/>
+<wire x1="137.16" y1="81.28" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="81.28" x2="154.94" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VDD"/>
+<wire x1="154.94" y1="83.82" x2="162.56" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="T_ON"/>
+<wire x1="162.56" y1="78.74" x2="154.94" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="78.74" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
+<junction x="154.94" y="81.28"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -1498,20 +1493,31 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="XB24" gate="G$1" pin="ON"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$7" class="0">
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="99.06" x2="124.46" y2="99.06" width="0.1524" layer="91"/>
-<junction x="137.16" y="99.06"/>
-<pinref part="MCP9700A" gate="G$1" pin="VO"/>
-<wire x1="160.02" y1="81.28" x2="160.02" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="99.06" x2="137.16" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="XB24" gate="G$1" pin="DIO0"/>
+<pinref part="U$1" gate="G$1" pin="TAO"/>
+<wire x1="198.12" y1="78.74" x2="203.2" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="78.74" x2="203.2" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="99.06" x2="203.2" y2="99.06" width="0.1524" layer="91"/>
+<junction x="137.16" y="99.06"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="108,1,154.94,81.28,N$1,,,,,"/>
+<approved hash="108,1,137.16,99.06,N$7,,,,,"/>
+</errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
