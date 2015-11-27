@@ -457,7 +457,7 @@ design rules under a new name.</description>
 <element name="MCP1700" library="hrldcpr" package="SOT-89-3" value="MCP1700" x="20.32" y="5.08" rot="R90"/>
 <element name="C2" library="SparkFun-Capacitors" package="0805" value="1µF" x="25.4" y="6.35"/>
 <element name="XB24" library="hrldcpr" package="XBEE-1" value="XBEE-1XBEE-1" x="17.78" y="12.7"/>
-<element name="U$1" library="lmt40" package="YFP0004" value="LMT40" x="33.0581" y="30.6832" rot="R270"/>
+<element name="U$1" library="lmt40" package="YFP0004" value="LMT40" x="33.02" y="30.48" rot="R270"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -479,8 +479,8 @@ design rules under a new name.</description>
 <contactref element="XB24" pad="10"/>
 <contactref element="XB24" pad="3"/>
 <contactref element="U$1" pad="GND"/>
-<wire x1="33.2581" y1="30.8832" x2="33.92" y2="31.6452" width="0.254" layer="1"/>
-<wire x1="33.92" y1="31.6452" x2="33.92" y2="33.02" width="0.254" layer="1"/>
+<wire x1="33.92" y1="33.02" x2="33.92" y2="31.38" width="0.254" layer="1"/>
+<wire x1="33.92" y1="31.38" x2="33.22" y2="30.68" width="0.254" layer="1"/>
 </signal>
 <signal name="V_BATT">
 <contactref element="C1" pad="1"/>
@@ -521,9 +521,9 @@ design rules under a new name.</description>
 <wire x1="33.92" y1="21.59" x2="33.97" y2="21.59" width="0.254" layer="1"/>
 <contactref element="U$1" pad="VDD"/>
 <contactref element="U$1" pad="T_ON"/>
-<wire x1="32.8581" y1="30.4832" x2="33.2581" y2="30.4832" width="0.254" layer="1"/>
-<wire x1="33.2581" y1="30.4832" x2="33.92" y2="30.4832" width="0.254" layer="1"/>
-<wire x1="33.92" y1="30.4832" x2="33.92" y2="21.59" width="0.254" layer="1"/>
+<wire x1="32.82" y1="30.28" x2="33.22" y2="30.28" width="0.254" layer="1"/>
+<wire x1="33.22" y1="30.28" x2="33.92" y2="29.58" width="0.254" layer="1"/>
+<wire x1="33.92" y1="29.58" x2="33.92" y2="21.59" width="0.254" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="R1" pad="1"/>
@@ -542,8 +542,8 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="TAO"/>
 <wire x1="28.78" y1="32.7" x2="32.12" y2="32.7" width="0.254" layer="1"/>
 <wire x1="32.12" y1="32.7" x2="32.12" y2="33.02" width="0.254" layer="1"/>
-<wire x1="32.8581" y1="30.8832" x2="32.12" y2="31.5182" width="0.254" layer="1"/>
-<wire x1="32.12" y1="31.5182" x2="32.12" y2="33.02" width="0.254" layer="1"/>
+<wire x1="32.12" y1="33.02" x2="32.12" y2="31.38" width="0.254" layer="1"/>
+<wire x1="32.12" y1="31.38" x2="32.82" y2="30.68" width="0.254" layer="1"/>
 </signal>
 </signals>
 </board>
