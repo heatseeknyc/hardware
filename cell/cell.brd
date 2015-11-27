@@ -248,7 +248,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="lmt40">
+<library name="lmt70">
 <packages>
 <package name="YFP0004">
 <smd name="VDD" x="0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
@@ -457,7 +457,7 @@ design rules under a new name.</description>
 <element name="MCP1700" library="hrldcpr" package="SOT-89-3" value="MCP1700" x="20.32" y="5.08" rot="R90"/>
 <element name="C2" library="SparkFun-Capacitors" package="0805" value="1µF" x="25.4" y="6.35"/>
 <element name="XB24" library="hrldcpr" package="XBEE-1" value="XBEE-1XBEE-1" x="17.78" y="12.7"/>
-<element name="U$1" library="lmt40" package="YFP0004" value="LMT40" x="33.02" y="30.48" rot="R270"/>
+<element name="U$1" library="lmt70" package="YFP0004" value="LMT70" x="33.02" y="30.48" rot="R270"/>
 </elements>
 <signals>
 <signal name="GND">

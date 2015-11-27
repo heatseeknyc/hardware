@@ -1284,7 +1284,7 @@ SMT header is CONN-09042.</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="lmt40">
+<library name="lmt70">
 <packages>
 <package name="YFP0004">
 <smd name="VDD" x="0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
@@ -1301,7 +1301,7 @@ SMT header is CONN-09042.</description>
 </package>
 </packages>
 <symbols>
-<symbol name="LMT40">
+<symbol name="LMT70">
 <wire x1="-12.7" y1="10.16" x2="12.7" y2="10.16" width="0.254" layer="94"/>
 <wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="12.7" y1="-10.16" x2="-12.7" y2="-10.16" width="0.254" layer="94"/>
@@ -1315,9 +1315,9 @@ SMT header is CONN-09042.</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="LMT40">
+<deviceset name="LMT70">
 <gates>
-<gate name="G$1" symbol="LMT40" x="0" y="0"/>
+<gate name="G$1" symbol="LMT70" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="YFP0004">
@@ -1363,7 +1363,7 @@ SMT header is CONN-09042.</description>
 <part name="MCP1700" library="hrldcpr" deviceset="MCP1700" device=""/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1µF"/>
 <part name="XB24" library="hrldcpr" deviceset="XBEE-1" device="XBEE-1"/>
-<part name="U$1" library="lmt40" deviceset="LMT40" device=""/>
+<part name="U$1" library="lmt70" deviceset="LMT70" device=""/>
 </parts>
 <sheets>
 <sheet>
