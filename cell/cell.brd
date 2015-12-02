@@ -22,9 +22,9 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -251,10 +251,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <library name="lmt70">
 <packages>
 <package name="YFP0004">
-<smd name="VDD" x="0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="T_ON" x="0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="TAO" x="-0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="GND" x="-0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<smd name="VDD" x="0.2" y="0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="T_ON" x="0.2" y="-0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="TAO" x="-0.2" y="-0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="GND" x="-0.2" y="0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<circle x="-0.2" y="0.2" radius="0.166" width="0" layer="29"/>
+<circle x="0.2" y="0.2" radius="0.166" width="0" layer="29"/>
+<circle x="0.2" y="-0.2" radius="0.166" width="0" layer="29"/>
+<circle x="-0.2" y="-0.2" radius="0.166" width="0" layer="29"/>
 <wire x1="-0.45" y1="0.45" x2="0.45" y2="0.45" width="0.05" layer="21"/>
 <wire x1="0.45" y1="0.45" x2="0.45" y2="-0.45" width="0.05" layer="21"/>
 <wire x1="0.45" y1="-0.45" x2="-0.45" y2="-0.45" width="0.05" layer="21"/>
@@ -479,8 +483,8 @@ design rules under a new name.</description>
 <contactref element="XB24" pad="10"/>
 <contactref element="XB24" pad="3"/>
 <contactref element="U$1" pad="GND"/>
-<wire x1="33.92" y1="33.02" x2="33.92" y2="31.38" width="0.254" layer="1"/>
-<wire x1="33.92" y1="31.38" x2="33.22" y2="30.68" width="0.254" layer="1"/>
+<wire x1="33.92" y1="33.02" x2="33.92" y2="31.38" width="0.205740625" layer="1"/>
+<wire x1="33.92" y1="31.38" x2="33.22" y2="30.68" width="0.205740625" layer="1"/>
 </signal>
 <signal name="V_BATT">
 <contactref element="C1" pad="1"/>
@@ -521,12 +525,12 @@ design rules under a new name.</description>
 <wire x1="33.92" y1="21.59" x2="33.97" y2="21.59" width="0.254" layer="1"/>
 <contactref element="U$1" pad="VDD"/>
 <contactref element="U$1" pad="T_ON"/>
-<wire x1="33.22" y1="30.28" x2="33.92" y2="29.58" width="0.254" layer="1"/>
-<wire x1="33.92" y1="29.58" x2="33.92" y2="27.802" width="0.254" layer="1"/>
-<wire x1="33.92" y1="26.67" x2="33.92" y2="21.59" width="0.254" layer="1"/>
-<wire x1="32.82" y1="30.28" x2="32.131" y2="29.591" width="0.254" layer="1"/>
-<wire x1="32.131" y1="29.591" x2="33.92" y2="27.802" width="0.254" layer="1"/>
-<wire x1="33.92" y1="27.802" x2="33.92" y2="26.67" width="0.254" layer="1"/>
+<wire x1="33.22" y1="30.28" x2="33.92" y2="29.58" width="0.205740625" layer="1"/>
+<wire x1="33.92" y1="29.58" x2="33.92" y2="27.802" width="0.205740625" layer="1"/>
+<wire x1="33.92" y1="26.67" x2="33.92" y2="21.59" width="0.205740625" layer="1"/>
+<wire x1="32.82" y1="30.28" x2="32.131" y2="29.591" width="0.205740625" layer="1"/>
+<wire x1="32.131" y1="29.591" x2="33.92" y2="27.802" width="0.205740625" layer="1"/>
+<wire x1="33.92" y1="27.802" x2="33.92" y2="26.67" width="0.205740625" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="R1" pad="1"/>
@@ -545,8 +549,8 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="TAO"/>
 <wire x1="28.78" y1="32.7" x2="32.12" y2="32.7" width="0.254" layer="1"/>
 <wire x1="32.12" y1="32.7" x2="32.12" y2="33.02" width="0.254" layer="1"/>
-<wire x1="32.12" y1="33.02" x2="32.12" y2="31.38" width="0.254" layer="1"/>
-<wire x1="32.12" y1="31.38" x2="32.82" y2="30.68" width="0.254" layer="1"/>
+<wire x1="32.12" y1="32.7" x2="32.12" y2="31.38" width="0.205740625" layer="1"/>
+<wire x1="32.12" y1="31.38" x2="32.82" y2="30.68" width="0.205740625" layer="1"/>
 </signal>
 </signals>
 </board>

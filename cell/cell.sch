@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1287,10 +1287,14 @@ SMT header is CONN-09042.</description>
 <library name="lmt70">
 <packages>
 <package name="YFP0004">
-<smd name="VDD" x="0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="T_ON" x="0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="TAO" x="-0.2" y="-0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
-<smd name="GND" x="-0.2" y="0.2" dx="0.24" dy="0.24" layer="1" roundness="100"/>
+<smd name="VDD" x="0.2" y="0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="T_ON" x="0.2" y="-0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="TAO" x="-0.2" y="-0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<smd name="GND" x="-0.2" y="0.2" dx="0.205" dy="0.205" layer="1" roundness="100" stop="no"/>
+<circle x="-0.2" y="0.2" radius="0.166" width="0" layer="29"/>
+<circle x="0.2" y="0.2" radius="0.166" width="0" layer="29"/>
+<circle x="0.2" y="-0.2" radius="0.166" width="0" layer="29"/>
+<circle x="-0.2" y="-0.2" radius="0.166" width="0" layer="29"/>
 <wire x1="-0.45" y1="0.45" x2="0.45" y2="0.45" width="0.05" layer="21"/>
 <wire x1="0.45" y1="0.45" x2="0.45" y2="-0.45" width="0.05" layer="21"/>
 <wire x1="0.45" y1="-0.45" x2="-0.45" y2="-0.45" width="0.05" layer="21"/>
