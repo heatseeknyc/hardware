@@ -33,4 +33,6 @@ The [chip](http://www.digikey.com/product-detail/en/XB24-Z7PIT-004/602-1275-ND/3
 
 The [docs](http://ftp1.digi.com/support/documentation/90000976_S.pdf)
 
+### GERBER Files
+If you need to generate a GERBER file, follow the instructions in [this tutorial](https://learn.sparkfun.com/tutorials/using-eagle-board-layout/generating-gerbers). You just clone [their repo](https://github.com/sparkfun/SparkFun_Eagle_Settings) and use `sfe-gerb274x.cam`.
 
